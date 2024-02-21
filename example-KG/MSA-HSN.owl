@@ -1,0 +1,4417 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="https://www.maritimelinkeddata.org/c-msa-hsn"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="https://www.maritimelinkeddata.org/c-msa-hsn">
+    <Prefix name="" IRI="https://www.maritimelinkeddata.org/c-msa-hsn"/>
+    <Prefix name="om" IRI="http://www.ontology-of-units-of-measure.org/resource/om-2/"/>
+    <Prefix name="geo" IRI="http://www.w3.org/2003/01/geo/wgs84_pos#"/>
+    <Prefix name="msa" IRI="https://www.maritimelinkeddata.org/c-msa-hsn"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="ssn" IRI="http://www.w3.org/ns/ssn/"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="foaf" IRI="http://xmlns.com/foaf/0.1/"/>
+    <Prefix name="rdfs" IRI="https://www.w3.org/2000/01.rdf-schema#"/>
+    <Prefix name="sosa" IRI="http://www.w3.org/ns/sosa/"/>
+    <Prefix name="time" IRI="http://www.w3.org/2006/time#"/>
+    <Prefix name="eucise" IRI="https://www.semanticweb.org/ROBORDER/eucise#"/>
+    <Prefix name="iot-stream" IRI="http://purl.org/iot/ontology/iot-stream#"/>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="sosa:comment"/>
+        <Literal>The Maritime Situational Awareness (MSA) Heterogeneous Sensor Network ontology models Maritime Linked Data. MSA-HSN supports the representation of the information and the semantic querying of a typical MSA information fusion system like the MSA system of the maritime use case of the H2020 project Interactive Extreme-Scale Analytics and Forecasting (INFORE).</Literal>
+    </Annotation>
+    <Declaration>
+        <Class abbreviatedIRI="iot-stream:Analytics"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="iot-stream:IotStream"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="om:Dimension"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="om:Measure"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="om:Quantity"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="om:Scale"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="om:Unit"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="geo:Point"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="time:Interval"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="time:TemporalEntity"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="sosa:FeatureOfInterest"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="sosa:ObservableProperty"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="sosa:Observation"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="sosa:Platform"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="sosa:Procedure"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="sosa:Result"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="sosa:Sensor"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="ssn:System"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="foaf:Organization"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="foaf:Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AISAcquisitionSystem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AISFusionSystem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AISProcessingSystem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AcousticSensor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AreaOfInterest"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AutomaticIdentificationSystem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ClassificationAlgorithm"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EventDetector"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EventElementWithRole"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#FeatureOfInterestProfile"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#FusionAlgorithm"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Granularity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#InSituObservation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#InformationFusionSystem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LinearAcousticSensor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LocationProfile"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MSAFeatureOfInterest"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MSALocation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MSAObservation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MSAScale"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MSASensor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MSAUnitOfMeasure"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MSAVehicle"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MSAVessel"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MaritimeEvent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MaritimeEventDomain"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MaritimeEventProfile"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MaritimeThreat"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MaritimeThreatDomain"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MaritimeThreatProfile"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MeasurementUncertainty"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MeasurementUncertaintyInfo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ModelOutput"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MultiIntFusionSystem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NavigationSensor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OceanModel"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OrderedSequenceOfPoints"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PatternOfLife"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Profile"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#QualitativeDomain"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#QualitativeValue"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Quality"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#QualityDimension"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#QualityObservation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#QualityValueDimension"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#QuantitativeDomain"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#QuantitativeValue"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#QuantityKind"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Radar"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RemoteSensingObservation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RoboticNavigation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SatelliteSensor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SeaSurfaceVehicleProperty"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SemanticTrajectory"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SensorPerformance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SensorProfile"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SensorProperty"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SimpleLocation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SpatialBoundary"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SpatialElement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SpatialEntity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SpatialRegion"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SpatialSeries"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SpatialSet"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SpatialValue"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SyntheticApertureRadar"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SyntheticApertureSonar"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TargetClassification"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TargetClassificationSystem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TargetDetection"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TargetDetectionSystem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TemporalElement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TemporalSeries"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TemporalValue"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ThermalCamera"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TrajectorySynopsis"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#USVObservableProperty"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#UUVObservableProperty"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#UncrewedVehicle-UxV"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#UnderwaterVehicleProperty"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Value"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ValueDimension"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ValueDomain"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ValueDomainPartition"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#VectorAcousticSensor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#VehicleProperty"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#VesselHistory"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#VesselObservableProperty"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="eucise:Agent"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="eucise:Event"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="eucise:Location"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="eucise:Object"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="eucise:Vehicle"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="eucise:Vessel"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/iot/ontology/iot-stream/belongsTo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="om:commonlyHasUnit"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="om:hasDimension"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="om:hasQuantity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="om:hasScale"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="om:hasUnit"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.semanticweb.org/ec/ontologies/2021/2/isDerivedFrom"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://www.semanticweb.org/ec/ontologies/2021/2/isDerivedFromIoTStream"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="sosa:hasFeatureOfInterest"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="sosa:hasProperty"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="sosa:hosts"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="sosa:isFeatureOfInterestOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="sosa:isHostedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="sosa:isObservedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="sosa:madeBySensor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="sosa:madeObservation"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="sosa:observedProperty"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="sosa:observes"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="sosa:phenomenonTime"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="sosa:usedProcedure"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="ssn:implements"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#allowedQualitativeValue"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasAdmissibleValue"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasAlternativeValue"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasDimensionValue"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasDomainPartition"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasExteriorBoundary"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasGranularity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasInnerTemporalSeries"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasInternalBoundary"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasMeasurementUncertaintyInfo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasOrderedSequenceOfPoints"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasPosition"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasProfile"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasQualitativeTemporalValidity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasQuantityKind"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasQuantityUnitOfMeasure"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasSTValue"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasSpatialElement"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasSpatialEntity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasSpatialValidity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasStartingPoint"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasTemporalElement"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasTemporalEntity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasTemporalValidity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasUncertainty"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasUncertaintyInfo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasUnitOfMeasure"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasValueDimension"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasValueDomain"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasValueScale"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isMadeByValue"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isPropertyOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="eucise:hasQualitativeNature"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="geo:alt"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="geo:lat"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="geo:long"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="sosa:resultTime"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#categoricalValue"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#description"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasValue"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#name"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#numericValue"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="om:length"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="om:mass"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="om:time"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#AISSynopsesGenerator"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#AIS_SART_active"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#BELLOP"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#BrestAISReceiver"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#CMREAISReceiver"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#CMRERadar"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ComplexEventForecastingAlgorithm"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ComplexEventRecognitionAlgorithm"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#DANCE"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#DANCEAlgorithm"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#FORUM"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#INFOREAISProcessingAlgorithm"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#INFOREAISProcessingSystem"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#INFOREAISQualityAlgorithm"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#INFOREFusionSystem"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#INFOREInformationFusionAlgorithm"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#MaritimeEventDetector"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#MediterraneanForecastSystem"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#MultispectralImageTargetClassificationAlgorithm"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#MultispectralImageTargetClassifier"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#NARIAISProcessingSystem"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#NARIAISprocessingAlgorithm"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#NEMO"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#NRVAllianceAIS"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#NRVAllianceRadar"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#OccupancyGridMapping"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PERSEUSPassiveAcousticSensor"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SAR_search_and_rescue"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SAR_search_and_rescue_aircraft"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Sentinel2-MSI"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Vessel_228015700"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Vessel_228109000"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Vessel_228133000"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Vessel_228827000"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#WG1Compass"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#WG1GPS"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#WG1Waterspeed"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#WG2Compass"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#WG2GPS"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#WG2Waterspeed"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#WaveGlider1Backseat"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#WaveGlider1Frontseat"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#WaveGlider1TowFish"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#WaveGlider1backseat"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#WaveGlider2Frontseat"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#WaveGlider2Towfish"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#accuracy"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#agent_role_domain"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#aground"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#aisEventDomain"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#anti_pollution_special_craft"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#availability"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#bearing"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#callsign"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#cargo"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#cargo_hazard-A-major"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#cargo_hazard-B"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#cargo_hazard-C-minor"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#cargo_hazard-D-recognizable"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#cause"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#causes"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#completeness"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#complexMaritimeEventDomain"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#confidence"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#conformal"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#conformance_value_domain"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#coordinator"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#courseOverGround"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#currency"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#declared"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#destination"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#dive_vessel_special_craft"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#draught"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#dredger_special_craft"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#encompasses"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#engagedInFishing"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#estimated"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#estimatedTimeofArrivalETA"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#event_role_domain"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#extreme"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#fishing_vessel"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#forecast"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#heading"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#high-speed_craft"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#imo"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#importance"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#incident_urgency_domain"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#information_quality_domain"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#informed"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#interpretability"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#law_enforce_special_craft"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#local_vessel_special_craft"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#location_role_domain"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#maritime_threat_domain"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#medical_transport_special_craft"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#military_operations_special_craft"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#minor"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#mmsi"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#moderate"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#mothership"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#msaevent"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#msathreat"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#name"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#navigation_status"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#non-conformal"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#not_defined"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#nowcast"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#object_role_domain"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#observed"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#observer"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#openess"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#other"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#owner"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#participant"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#passenger"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#perpetrator"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#pilot_vessel_special_craft"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#pleasure_craft"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#port_tender_special_craft"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#position"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#positionEventDomain"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#precision"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#prevents"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#qualitative_nature_domain"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#qualitative_temporal_nature_domain"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#reanalysis"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#relevance"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#reliability"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#reporter"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#requires"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#reserved"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#reserved_for_future_amendment_of_navigational_status_for_ships_carrying_dangerous_goods"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#reserved_unspecified"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#reserverd_for_future_use"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#responds"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#role"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#sailing_vessel"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#sensorResolution"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#severe"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#simpleMaritimeEventDomain"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#simulated"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#special_craft"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#speed-locationEventDomain"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#speedEventDomain"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#speedOverGround"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#status"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#synopsesDataEngine"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#tanker"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#tanker_hazard-A-major"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#tanker_hazard-B"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#tanker_hazard-C-minor"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#tanker_hazard-D-recognizable"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#theoreticalSensorCoverage"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#timeliness"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#to_bow"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#to_port"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#to_starboard"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#to_stern"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#truthfulness"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#tug"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#turn"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#type"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#underWaySailing"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#understandability"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#validated"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#vessel_activity_domain"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#vessel_status_domain"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#vessel_type_domain"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#victim"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#weatherevent"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#wing_in_ground"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#AISVesselPosition/ed5e8ae2-b24e-4f84-90ce-39c5cca5a163-2020-03-01T06-37-23Z"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#AISVesselPosition/18a10fab-f282-4455-a3c6-15b2c405d581-2020-02-29T22-00-11Z"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#AISVesselPosition/228015700-1444072938"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#AISVesselPosition/228109000-1444071441"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#AISVesselPosition/228133000-1444031105"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#AISVesselPosition/228827000-1443769141"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#CER/CEF"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#CMREEO/IRCamera"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="geo:altitude"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="geo:latitude"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="geo:longitude"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="sosa:comment"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="sosa:domain"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="sosa:range"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="sosa:subClassOf"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="sosa:subPropertyOf"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="geo:Point"/>
+        <Class IRI="#SimpleLocation"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#MSAVessel"/>
+        <Class abbreviatedIRI="eucise:Vessel"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#QuantityKind"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="om:Quantity"/>
+            <Class IRI="#Quality"/>
+        </ObjectUnionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#ValueDimension"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="om:Dimension"/>
+            <Class IRI="#QualityValueDimension"/>
+        </ObjectUnionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class abbreviatedIRI="iot-stream:Analytics"/>
+        <Class abbreviatedIRI="sosa:Procedure"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="time:Interval"/>
+        <Class abbreviatedIRI="time:TemporalEntity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="time:TemporalEntity"/>
+        <Class IRI="#TemporalValue"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AISAcquisitionSystem"/>
+        <Class IRI="#AutomaticIdentificationSystem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AISFusionSystem"/>
+        <Class IRI="#AutomaticIdentificationSystem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AISProcessingSystem"/>
+        <Class IRI="#AutomaticIdentificationSystem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AcousticSensor"/>
+        <Class IRI="#MSASensor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AreaOfInterest"/>
+        <Class IRI="#MSALocation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AreaOfInterest"/>
+        <Class IRI="#MSAObservation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AutomaticIdentificationSystem"/>
+        <Class IRI="#MSASensor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ClassificationAlgorithm"/>
+        <Class abbreviatedIRI="sosa:Procedure"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EventDetector"/>
+        <Class IRI="#MSASensor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FeatureOfInterestProfile"/>
+        <Class IRI="#Profile"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FusionAlgorithm"/>
+        <Class abbreviatedIRI="sosa:Procedure"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#InSituObservation"/>
+        <Class IRI="#MSAObservation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#InformationFusionSystem"/>
+        <Class IRI="#MSASensor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#LinearAcousticSensor"/>
+        <Class IRI="#AcousticSensor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#LocationProfile"/>
+        <Class IRI="#Profile"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MSAFeatureOfInterest"/>
+        <Class abbreviatedIRI="sosa:FeatureOfInterest"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MSAFeatureOfInterest"/>
+        <Class abbreviatedIRI="eucise:Object"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MSALocation"/>
+        <Class IRI="#MSAObservation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MSALocation"/>
+        <Class abbreviatedIRI="eucise:Location"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MSAObservation"/>
+        <Class abbreviatedIRI="sosa:Observation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MSAObservation"/>
+        <Class IRI="#MSAFeatureOfInterest"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MSAScale"/>
+        <Class abbreviatedIRI="om:Scale"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MSASensor"/>
+        <Class abbreviatedIRI="sosa:Sensor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MSASensor"/>
+        <Class IRI="#MSAFeatureOfInterest"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MSAUnitOfMeasure"/>
+        <Class abbreviatedIRI="om:Unit"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MSAVehicle"/>
+        <Class IRI="#MSAFeatureOfInterest"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MSAVehicle"/>
+        <Class abbreviatedIRI="eucise:Vehicle"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MSAVessel"/>
+        <Class IRI="#MSAVehicle"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MaritimeEvent"/>
+        <Class IRI="#MSAObservation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MaritimeEvent"/>
+        <Class abbreviatedIRI="eucise:Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MaritimeEventDomain"/>
+        <Class IRI="#QualitativeDomain"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MaritimeEventProfile"/>
+        <Class IRI="#Profile"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MaritimeThreat"/>
+        <Class IRI="#MSAObservation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MaritimeThreatDomain"/>
+        <Class IRI="#QualitativeDomain"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MaritimeThreatProfile"/>
+        <Class IRI="#Profile"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ModelOutput"/>
+        <Class IRI="#MSAObservation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MultiIntFusionSystem"/>
+        <Class IRI="#MSASensor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#NavigationSensor"/>
+        <Class IRI="#MSASensor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#OceanModel"/>
+        <Class IRI="#MSASensor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#OrderedSequenceOfPoints"/>
+        <Class IRI="#SpatialEntity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PatternOfLife"/>
+        <Class IRI="#MSAObservation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Profile"/>
+        <Class IRI="#MSAObservation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#QualitativeDomain"/>
+        <Class IRI="#ValueDomain"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#QualitativeValue"/>
+        <Class IRI="#Value"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#QualityDimension"/>
+        <Class abbreviatedIRI="sosa:ObservableProperty"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#QualityObservation"/>
+        <Class IRI="#MSAObservation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#QuantitativeDomain"/>
+        <Class IRI="#ValueDomain"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#QuantitativeValue"/>
+        <Class IRI="#Value"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Radar"/>
+        <Class IRI="#MSASensor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RemoteSensingObservation"/>
+        <Class IRI="#MSAObservation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RoboticNavigation"/>
+        <Class abbreviatedIRI="sosa:Procedure"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SatelliteSensor"/>
+        <Class IRI="#MSASensor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SeaSurfaceVehicleProperty"/>
+        <Class IRI="#VehicleProperty"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SemanticTrajectory"/>
+        <Class IRI="#MSAObservation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SensorPerformance"/>
+        <Class IRI="#MSAObservation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SensorProfile"/>
+        <Class IRI="#Profile"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SensorProperty"/>
+        <Class abbreviatedIRI="sosa:ObservableProperty"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SimpleLocation"/>
+        <Class IRI="#MSALocation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SimpleLocation"/>
+        <Class IRI="#SpatialEntity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SpatialBoundary"/>
+        <Class IRI="#SpatialEntity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SpatialElement"/>
+        <Class IRI="#SpatialValue"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SpatialEntity"/>
+        <Class IRI="#SpatialValue"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SpatialRegion"/>
+        <Class IRI="#SpatialEntity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SpatialSeries"/>
+        <Class IRI="#SpatialValue"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SpatialSet"/>
+        <Class IRI="#SpatialValue"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SpatialValue"/>
+        <Class IRI="#Value"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SyntheticApertureRadar"/>
+        <Class IRI="#MSASensor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SyntheticApertureSonar"/>
+        <Class IRI="#MSASensor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TargetClassification"/>
+        <Class IRI="#MSAObservation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TargetClassificationSystem"/>
+        <Class IRI="#MSASensor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TargetDetection"/>
+        <Class IRI="#MSAObservation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TargetDetectionSystem"/>
+        <Class IRI="#MSASensor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TemporalElement"/>
+        <Class IRI="#TemporalValue"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TemporalSeries"/>
+        <Class IRI="#TemporalValue"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TemporalValue"/>
+        <Class IRI="#Value"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ThermalCamera"/>
+        <Class IRI="#MSASensor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TrajectorySynopsis"/>
+        <Class IRI="#MSAObservation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#USVObservableProperty"/>
+        <Class IRI="#SeaSurfaceVehicleProperty"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#UUVObservableProperty"/>
+        <Class IRI="#UnderwaterVehicleProperty"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#UncrewedVehicle-UxV"/>
+        <Class IRI="#MSAVehicle"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#UncrewedVehicle-UxV"/>
+        <Class abbreviatedIRI="eucise:Vehicle"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#UnderwaterVehicleProperty"/>
+        <Class IRI="#VehicleProperty"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Value"/>
+        <Class abbreviatedIRI="om:Measure"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Value"/>
+        <Class abbreviatedIRI="sosa:Result"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#VectorAcousticSensor"/>
+        <Class IRI="#AcousticSensor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#VehicleProperty"/>
+        <Class abbreviatedIRI="sosa:ObservableProperty"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#VesselHistory"/>
+        <Class IRI="#SemanticTrajectory"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#VesselObservableProperty"/>
+        <Class IRI="#SeaSurfaceVehicleProperty"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="eucise:Vehicle"/>
+        <Class abbreviatedIRI="eucise:Object"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="eucise:Vessel"/>
+        <Class abbreviatedIRI="eucise:Vehicle"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="sosa:ObservableProperty"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#isPropertyOf"/>
+                <Class IRI="#MSAVessel"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+        <ObjectUnionOf>
+            <Class IRI="#SeaSurfaceVehicleProperty"/>
+            <Class IRI="#VehicleProperty"/>
+            <Class IRI="#VesselObservableProperty"/>
+        </ObjectUnionOf>
+    </SubClassOf>
+    <ClassAssertion>
+        <Class abbreviatedIRI="om:Quantity"/>
+        <NamedIndividual abbreviatedIRI="om:length"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="om:Quantity"/>
+        <NamedIndividual abbreviatedIRI="om:mass"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="om:Quantity"/>
+        <NamedIndividual abbreviatedIRI="om:time"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#AISProcessingSystem"/>
+        <NamedIndividual IRI="#AISSynopsesGenerator"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#AIS_SART_active"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#AcousticSensor"/>
+        <NamedIndividual IRI="#BELLOP"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OceanModel"/>
+        <NamedIndividual IRI="#BELLOP"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#AISAcquisitionSystem"/>
+        <NamedIndividual IRI="#BrestAISReceiver"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#AISAcquisitionSystem"/>
+        <NamedIndividual IRI="#CMREAISReceiver"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Radar"/>
+        <NamedIndividual IRI="#CMRERadar"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ClassificationAlgorithm"/>
+        <NamedIndividual IRI="#ComplexEventForecastingAlgorithm"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ClassificationAlgorithm"/>
+        <NamedIndividual IRI="#ComplexEventRecognitionAlgorithm"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TargetDetectionSystem"/>
+        <NamedIndividual IRI="#DANCE"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="iot-stream:Analytics"/>
+        <NamedIndividual IRI="#DANCEAlgorithm"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#FusionAlgorithm"/>
+        <NamedIndividual IRI="#DANCEAlgorithm"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MultiIntFusionSystem"/>
+        <NamedIndividual IRI="#FORUM"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="iot-stream:Analytics"/>
+        <NamedIndividual IRI="#INFOREAISProcessingAlgorithm"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#FusionAlgorithm"/>
+        <NamedIndividual IRI="#INFOREAISProcessingAlgorithm"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#AISProcessingSystem"/>
+        <NamedIndividual IRI="#INFOREAISProcessingSystem"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="iot-stream:Analytics"/>
+        <NamedIndividual IRI="#INFOREAISQualityAlgorithm"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#FusionAlgorithm"/>
+        <NamedIndividual IRI="#INFOREAISQualityAlgorithm"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#InformationFusionSystem"/>
+        <NamedIndividual IRI="#INFOREFusionSystem"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#FusionAlgorithm"/>
+        <NamedIndividual IRI="#INFOREInformationFusionAlgorithm"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#EventDetector"/>
+        <NamedIndividual IRI="#MaritimeEventDetector"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OceanModel"/>
+        <NamedIndividual IRI="#MediterraneanForecastSystem"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ClassificationAlgorithm"/>
+        <NamedIndividual IRI="#MultispectralImageTargetClassificationAlgorithm"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TargetClassificationSystem"/>
+        <NamedIndividual IRI="#MultispectralImageTargetClassifier"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#AISProcessingSystem"/>
+        <NamedIndividual IRI="#NARIAISProcessingSystem"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="iot-stream:Analytics"/>
+        <NamedIndividual IRI="#NARIAISprocessingAlgorithm"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#FusionAlgorithm"/>
+        <NamedIndividual IRI="#NARIAISprocessingAlgorithm"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OceanModel"/>
+        <NamedIndividual IRI="#NEMO"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#AutomaticIdentificationSystem"/>
+        <NamedIndividual IRI="#NRVAllianceAIS"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Radar"/>
+        <NamedIndividual IRI="#NRVAllianceRadar"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#RoboticNavigation"/>
+        <NamedIndividual IRI="#OccupancyGridMapping"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#VectorAcousticSensor"/>
+        <NamedIndividual IRI="#PERSEUSPassiveAcousticSensor"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#SAR_search_and_rescue"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#SAR_search_and_rescue_aircraft"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#SatelliteSensor"/>
+        <NamedIndividual IRI="#Sentinel2-MSI"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MSAVessel"/>
+        <NamedIndividual IRI="#Vessel_228015700"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MSAVessel"/>
+        <NamedIndividual IRI="#Vessel_228109000"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MSAVessel"/>
+        <NamedIndividual IRI="#Vessel_228133000"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MSAVessel"/>
+        <NamedIndividual IRI="#Vessel_228827000"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#NavigationSensor"/>
+        <NamedIndividual IRI="#WG1Compass"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#NavigationSensor"/>
+        <NamedIndividual IRI="#WG1GPS"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#NavigationSensor"/>
+        <NamedIndividual IRI="#WG1Waterspeed"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#NavigationSensor"/>
+        <NamedIndividual IRI="#WG2Compass"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#NavigationSensor"/>
+        <NamedIndividual IRI="#WG2GPS"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#NavigationSensor"/>
+        <NamedIndividual IRI="#WG2Waterspeed"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="sosa:Platform"/>
+        <NamedIndividual IRI="#WaveGlider1Backseat"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="sosa:Platform"/>
+        <NamedIndividual IRI="#WaveGlider1Frontseat"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="sosa:Platform"/>
+        <NamedIndividual IRI="#WaveGlider1TowFish"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="sosa:Platform"/>
+        <NamedIndividual IRI="#WaveGlider1backseat"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="sosa:Platform"/>
+        <NamedIndividual IRI="#WaveGlider2Frontseat"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="sosa:Platform"/>
+        <NamedIndividual IRI="#WaveGlider2Towfish"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualityDimension"/>
+        <NamedIndividual IRI="#accuracy"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeDomain"/>
+        <NamedIndividual IRI="#agent_role_domain"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#aground"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaritimeEventDomain"/>
+        <NamedIndividual IRI="#aisEventDomain"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#anti_pollution_special_craft"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualityDimension"/>
+        <NamedIndividual IRI="#availability"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#VehicleProperty"/>
+        <NamedIndividual IRI="#bearing"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#VesselObservableProperty"/>
+        <NamedIndividual IRI="#callsign"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#cargo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#cargo_hazard-A-major"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#cargo_hazard-B"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#cargo_hazard-C-minor"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#cargo_hazard-D-recognizable"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#cause"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#causes"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualityDimension"/>
+        <NamedIndividual IRI="#completeness"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaritimeEventDomain"/>
+        <NamedIndividual IRI="#complexMaritimeEventDomain"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualityDimension"/>
+        <NamedIndividual IRI="#confidence"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#conformal"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeDomain"/>
+        <NamedIndividual IRI="#conformance_value_domain"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#coordinator"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#VehicleProperty"/>
+        <NamedIndividual IRI="#courseOverGround"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualityDimension"/>
+        <NamedIndividual IRI="#currency"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#declared"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#VehicleProperty"/>
+        <NamedIndividual IRI="#destination"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#dive_vessel_special_craft"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#SeaSurfaceVehicleProperty"/>
+        <NamedIndividual IRI="#draught"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#dredger_special_craft"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#encompasses"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#engagedInFishing"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#estimated"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#VehicleProperty"/>
+        <NamedIndividual IRI="#estimatedTimeofArrivalETA"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeDomain"/>
+        <NamedIndividual IRI="#event_role_domain"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#extreme"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#fishing_vessel"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#forecast"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#VehicleProperty"/>
+        <NamedIndividual IRI="#heading"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#high-speed_craft"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#VesselObservableProperty"/>
+        <NamedIndividual IRI="#imo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualityDimension"/>
+        <NamedIndividual IRI="#importance"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeDomain"/>
+        <NamedIndividual IRI="#incident_urgency_domain"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeDomain"/>
+        <NamedIndividual IRI="#information_quality_domain"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#informed"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualityDimension"/>
+        <NamedIndividual IRI="#interpretability"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#law_enforce_special_craft"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#local_vessel_special_craft"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeDomain"/>
+        <NamedIndividual IRI="#location_role_domain"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaritimeThreatDomain"/>
+        <NamedIndividual IRI="#maritime_threat_domain"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#medical_transport_special_craft"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#military_operations_special_craft"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#minor"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#VesselObservableProperty"/>
+        <NamedIndividual IRI="#mmsi"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#moderate"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#VesselObservableProperty"/>
+        <NamedIndividual IRI="#mothership"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Quality"/>
+        <NamedIndividual IRI="#msaevent"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Quality"/>
+        <NamedIndividual IRI="#msathreat"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#VehicleProperty"/>
+        <NamedIndividual IRI="#name"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#VehicleProperty"/>
+        <NamedIndividual IRI="#navigation_status"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#non-conformal"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#not_defined"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#nowcast"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeDomain"/>
+        <NamedIndividual IRI="#object_role_domain"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#observed"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#observer"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualityDimension"/>
+        <NamedIndividual IRI="#openess"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#other"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#VehicleProperty"/>
+        <NamedIndividual IRI="#owner"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#participant"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#passenger"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#perpetrator"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#pilot_vessel_special_craft"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#pleasure_craft"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#port_tender_special_craft"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#VehicleProperty"/>
+        <NamedIndividual IRI="#position"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaritimeEventDomain"/>
+        <NamedIndividual IRI="#positionEventDomain"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualityDimension"/>
+        <NamedIndividual IRI="#precision"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#prevents"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeDomain"/>
+        <NamedIndividual IRI="#qualitative_nature_domain"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeDomain"/>
+        <NamedIndividual IRI="#qualitative_temporal_nature_domain"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#reanalysis"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualityDimension"/>
+        <NamedIndividual IRI="#relevance"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualityDimension"/>
+        <NamedIndividual IRI="#reliability"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#reporter"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#requires"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#reserved"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#reserved_for_future_amendment_of_navigational_status_for_ships_carrying_dangerous_goods"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#reserved_unspecified"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#reserverd_for_future_use"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#responds"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Quality"/>
+        <NamedIndividual IRI="#role"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#sailing_vessel"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#SensorProperty"/>
+        <NamedIndividual IRI="#sensorResolution"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#severe"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaritimeEventDomain"/>
+        <NamedIndividual IRI="#simpleMaritimeEventDomain"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#simulated"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#special_craft"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaritimeEventDomain"/>
+        <NamedIndividual IRI="#speed-locationEventDomain"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaritimeEventDomain"/>
+        <NamedIndividual IRI="#speedEventDomain"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#VehicleProperty"/>
+        <NamedIndividual IRI="#speedOverGround"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Quality"/>
+        <NamedIndividual IRI="#status"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#AISProcessingSystem"/>
+        <NamedIndividual IRI="#synopsesDataEngine"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#tanker"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#tanker_hazard-A-major"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#tanker_hazard-B"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#tanker_hazard-C-minor"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#tanker_hazard-D-recognizable"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#SensorProperty"/>
+        <NamedIndividual IRI="#theoreticalSensorCoverage"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualityDimension"/>
+        <NamedIndividual IRI="#timeliness"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#VesselObservableProperty"/>
+        <NamedIndividual IRI="#to_bow"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#VesselObservableProperty"/>
+        <NamedIndividual IRI="#to_port"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#VesselObservableProperty"/>
+        <NamedIndividual IRI="#to_starboard"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#VesselObservableProperty"/>
+        <NamedIndividual IRI="#to_stern"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualityDimension"/>
+        <NamedIndividual IRI="#truthfulness"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#tug"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#VehicleProperty"/>
+        <NamedIndividual IRI="#turn"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#VehicleProperty"/>
+        <NamedIndividual IRI="#type"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#underWaySailing"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualityDimension"/>
+        <NamedIndividual IRI="#understandability"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#validated"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MaritimeEventDomain"/>
+        <NamedIndividual IRI="#vessel_activity_domain"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeDomain"/>
+        <NamedIndividual IRI="#vessel_status_domain"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeDomain"/>
+        <NamedIndividual IRI="#vessel_type_domain"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#victim"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Quality"/>
+        <NamedIndividual IRI="#weatherevent"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#QualitativeValue"/>
+        <NamedIndividual IRI="#wing_in_ground"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TargetDetection"/>
+        <NamedIndividual IRI="#AISVesselPosition/ed5e8ae2-b24e-4f84-90ce-39c5cca5a163-2020-03-01T06-37-23Z"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TargetDetection"/>
+        <NamedIndividual IRI="#AISVesselPosition/18a10fab-f282-4455-a3c6-15b2c405d581-2020-02-29T22-00-11Z"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TargetDetection"/>
+        <NamedIndividual IRI="#AISVesselPosition/228015700-1444072938"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TargetDetection"/>
+        <NamedIndividual IRI="#AISVesselPosition/228109000-1444071441"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TargetDetection"/>
+        <NamedIndividual IRI="#AISVesselPosition/228133000-1444031105"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TargetDetection"/>
+        <NamedIndividual IRI="#AISVesselPosition/228827000-1443769141"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#EventDetector"/>
+        <NamedIndividual IRI="#CER/CEF"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TargetClassificationSystem"/>
+        <NamedIndividual IRI="#CER/CEF"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ThermalCamera"/>
+        <NamedIndividual IRI="#CMREEO/IRCamera"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="sosa:madeObservation"/>
+        <NamedIndividual IRI="#NARIAISProcessingSystem"/>
+        <NamedIndividual IRI="#AISVesselPosition/228015700-1444072938"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="sosa:madeObservation"/>
+        <NamedIndividual IRI="#NARIAISProcessingSystem"/>
+        <NamedIndividual IRI="#AISVesselPosition/228109000-1444071441"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="sosa:madeObservation"/>
+        <NamedIndividual IRI="#NARIAISProcessingSystem"/>
+        <NamedIndividual IRI="#AISVesselPosition/228133000-1444031105"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="sosa:madeObservation"/>
+        <NamedIndividual IRI="#NARIAISProcessingSystem"/>
+        <NamedIndividual IRI="#AISVesselPosition/228827000-1443769141"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="sosa:isFeatureOfInterestOf"/>
+        <NamedIndividual IRI="#Vessel_228015700"/>
+        <NamedIndividual IRI="#AISVesselPosition/228015700-1444072938"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="sosa:hosts"/>
+        <NamedIndividual IRI="#WaveGlider1TowFish"/>
+        <NamedIndividual IRI="#PERSEUSPassiveAcousticSensor"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="sosa:hasFeatureOfInterest"/>
+        <NamedIndividual IRI="#AISVesselPosition/228015700-1444072938"/>
+        <NamedIndividual IRI="#Vessel_228015700"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="sosa:madeBySensor"/>
+        <NamedIndividual IRI="#AISVesselPosition/228015700-1444072938"/>
+        <NamedIndividual IRI="#NARIAISProcessingSystem"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="sosa:observedProperty"/>
+        <NamedIndividual IRI="#AISVesselPosition/228015700-1444072938"/>
+        <NamedIndividual IRI="#position"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="sosa:hasFeatureOfInterest"/>
+        <NamedIndividual IRI="#AISVesselPosition/228109000-1444071441"/>
+        <NamedIndividual IRI="#Vessel_228109000"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="sosa:madeBySensor"/>
+        <NamedIndividual IRI="#AISVesselPosition/228109000-1444071441"/>
+        <NamedIndividual IRI="#NARIAISProcessingSystem"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="sosa:observedProperty"/>
+        <NamedIndividual IRI="#AISVesselPosition/228109000-1444071441"/>
+        <NamedIndividual IRI="#position"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="sosa:hasFeatureOfInterest"/>
+        <NamedIndividual IRI="#AISVesselPosition/228133000-1444031105"/>
+        <NamedIndividual IRI="#Vessel_228133000"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="sosa:madeBySensor"/>
+        <NamedIndividual IRI="#AISVesselPosition/228133000-1444031105"/>
+        <NamedIndividual IRI="#NARIAISProcessingSystem"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="sosa:observedProperty"/>
+        <NamedIndividual IRI="#AISVesselPosition/228133000-1444031105"/>
+        <NamedIndividual IRI="#position"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="sosa:hasFeatureOfInterest"/>
+        <NamedIndividual IRI="#AISVesselPosition/228827000-1443769141"/>
+        <NamedIndividual IRI="#Vessel_228827000"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="sosa:madeBySensor"/>
+        <NamedIndividual IRI="#AISVesselPosition/228827000-1443769141"/>
+        <NamedIndividual IRI="#NARIAISProcessingSystem"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="sosa:observedProperty"/>
+        <NamedIndividual IRI="#AISVesselPosition/228827000-1443769141"/>
+        <NamedIndividual IRI="#position"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#AIS_SART_active"/>
+        <Literal xml:lang="en">AIS SART active</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#SAR_search_and_rescue"/>
+        <Literal xml:lang="en">Search and Rescue (SAR)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#SAR_search_and_rescue_aircraft"/>
+        <Literal xml:lang="en">Search and Rescue (SAR) aircraft</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#aground"/>
+        <Literal xml:lang="en">aground</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#anti_pollution_special_craft"/>
+        <Literal xml:lang="en">Anti-pollution special craft</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#cargo"/>
+        <Literal xml:lang="en">Cargo</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#cargo_hazard-A-major"/>
+        <Literal xml:lang="en">Cargo - Hazard A (Major)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#cargo_hazard-B"/>
+        <Literal xml:lang="en">Cargo - Hazard B</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#cargo_hazard-C-minor"/>
+        <Literal xml:lang="en">Cargo - Hazard C (Minor)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#cargo_hazard-D-recognizable"/>
+        <Literal xml:lang="en">Cargo - Hazard D (Recognizable)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#cause"/>
+        <Literal xml:lang="en">cause</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#causes"/>
+        <Literal xml:lang="en">causes</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#conformal"/>
+        <Literal xml:lang="en">conformal</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#coordinator"/>
+        <Literal xml:lang="en">Coordinator</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#declared"/>
+        <Literal xml:lang="en">Declared</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#dive_vessel_special_craft"/>
+        <Literal xml:lang="en">Dive vessel - special craft</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#dredger_special_craft"/>
+        <Literal xml:lang="en">Dredger - special craft</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#encompasses"/>
+        <Literal xml:lang="en">encompasses</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#engagedInFishing"/>
+        <Literal xml:lang="en">Engaged in fishing</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#estimated"/>
+        <Literal xml:lang="en">Estimated</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#extreme"/>
+        <Literal xml:lang="en">Extreme</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#fishing_vessel"/>
+        <Literal xml:lang="en">Fishing vessel</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#forecast"/>
+        <Literal xml:lang="en">forecast</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#high-speed_craft"/>
+        <Literal xml:lang="en">High-speed craft</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#informed"/>
+        <Literal xml:lang="en">Informed</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#law_enforce_special_craft"/>
+        <Literal xml:lang="en">Law enforce - special craft</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#local_vessel_special_craft"/>
+        <Literal xml:lang="en">Local vessel - special craft</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#medical_transport_special_craft"/>
+        <Literal xml:lang="en">Medical transport - special craft</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#military_operations_special_craft"/>
+        <Literal xml:lang="en">Military operations - special craft</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#minor"/>
+        <Literal xml:lang="en">Minor</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#moderate"/>
+        <Literal xml:lang="en">Moderate</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#non-conformal"/>
+        <Literal xml:lang="en">Non-conformal</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#not_defined"/>
+        <Literal xml:lang="en">Not defined (navigation status)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#nowcast"/>
+        <Literal xml:lang="en">Nowcast</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#observed"/>
+        <Literal xml:lang="en">Observed</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#observer"/>
+        <Literal xml:lang="en">Observer</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#other"/>
+        <Literal xml:lang="en">Other (vessel type)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#participant"/>
+        <Literal xml:lang="en">Participant</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#passenger"/>
+        <Literal xml:lang="en">Passenger</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#perpetrator"/>
+        <Literal xml:lang="en">Perpetrator</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#pilot_vessel_special_craft"/>
+        <Literal xml:lang="en">Pilot vessel - special craft</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#pleasure_craft"/>
+        <Literal xml:lang="en">Pleasure craft</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#port_tender_special_craft"/>
+        <Literal xml:lang="en">Port tender - special craft</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#prevents"/>
+        <Literal xml:lang="en">Prevents</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#reanalysis"/>
+        <Literal xml:lang="en">Reanalysis</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#reporter"/>
+        <Literal xml:lang="en">Reporter</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#requires"/>
+        <Literal xml:lang="en">Requires</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#reserved"/>
+        <Literal xml:lang="en">Reserved</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#reserved_for_future_amendment_of_navigational_status_for_ships_carrying_dangerous_goods"/>
+        <Literal xml:lang="en">Reserved for future amendment of navigational status for ships carrying dangerous goods</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#reserved_unspecified"/>
+        <Literal xml:lang="en">Reserved unspecified</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#reserverd_for_future_use"/>
+        <Literal xml:lang="en">Reserved for future use</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#responds"/>
+        <Literal xml:lang="en">Responds</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#sailing_vessel"/>
+        <Literal xml:lang="en">Sailing vessel</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#severe"/>
+        <Literal xml:lang="en">Severe</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#simulated"/>
+        <Literal xml:lang="en">Simulated</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#special_craft"/>
+        <Literal xml:lang="en">Special craft</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#tanker"/>
+        <Literal xml:lang="en">Tanker</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#tanker_hazard-A-major"/>
+        <Literal xml:lang="en">Tanker - Hazard A (Major)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#tanker_hazard-B"/>
+        <Literal xml:lang="en">Tanker - Hazard B</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#tanker_hazard-C-minor"/>
+        <Literal xml:lang="en">Tanker - Hazard C (Minor)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#tanker_hazard-D-recognizable"/>
+        <Literal xml:lang="en">Tanker - Hazard D (Recognizable)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#tug"/>
+        <Literal xml:lang="en">Tug</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#underWaySailing"/>
+        <Literal xml:lang="en">Under way sailing</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#validated"/>
+        <Literal xml:lang="en">Validated</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#victim"/>
+        <Literal xml:lang="en">Victim</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasValue"/>
+        <NamedIndividual IRI="#wing_in_ground"/>
+        <Literal xml:lang="en">Wing in ground</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="sosa:resultTime"/>
+        <NamedIndividual IRI="#AISVesselPosition/ed5e8ae2-b24e-4f84-90ce-39c5cca5a163-2020-03-01T06-37-23Z"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#dateTime">2020-03-01T06:37:23Z</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="sosa:resultTime"/>
+        <NamedIndividual IRI="#AISVesselPosition/18a10fab-f282-4455-a3c6-15b2c405d581-2020-02-29T22-00-11Z"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#dateTime">2020-02-29T22:00:11Z</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="sosa:resultTime"/>
+        <NamedIndividual IRI="#AISVesselPosition/228827000-1443769141"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">1443769141</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="sosa:resultTime"/>
+        <NamedIndividual IRI="#AISVesselPosition/228827000-1443769141"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#dateTime">2015-10-05T09:45:05Z</Literal>
+    </DataPropertyAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#allowedQualitativeValue"/>
+        <ObjectProperty IRI="#hasAdmissibleValue"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasExteriorBoundary"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasOrderedSequenceOfPoints"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasQualitativeTemporalValidity"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasQuantityKind"/>
+        <ObjectProperty abbreviatedIRI="om:hasQuantity"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasSTValue"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasSpatialElement"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasSpatialEntity"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasStartingPoint"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasTemporalElement"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasTemporalEntity"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasValueDimension"/>
+        <ObjectProperty abbreviatedIRI="om:hasDimension"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasValueScale"/>
+        <ObjectProperty abbreviatedIRI="om:hasScale"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isMadeByValue"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="eucise:hasQualitativeNature"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="sosa:hasProperty"/>
+        <ObjectProperty IRI="#isPropertyOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="sosa:hosts"/>
+        <ObjectProperty abbreviatedIRI="sosa:isHostedBy"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="sosa:madeBySensor"/>
+        <ObjectProperty abbreviatedIRI="sosa:madeObservation"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/iot/ontology/iot-stream/belongsTo"/>
+        <Class IRI="#MSAObservation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="om:commonlyHasUnit"/>
+        <Class abbreviatedIRI="om:Quantity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="om:hasDimension"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="om:Quantity"/>
+            <Class abbreviatedIRI="om:Scale"/>
+            <Class abbreviatedIRI="om:Unit"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="om:hasQuantity"/>
+        <Class abbreviatedIRI="om:Unit"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="om:hasScale"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="om:Quantity"/>
+            <Class abbreviatedIRI="om:Scale"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="om:hasUnit"/>
+        <Class abbreviatedIRI="om:Measure"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.semanticweb.org/ec/ontologies/2021/2/isDerivedFromIoTStream"/>
+        <Class abbreviatedIRI="sosa:Observation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="sosa:hasFeatureOfInterest"/>
+        <Class abbreviatedIRI="sosa:Observation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="sosa:hasProperty"/>
+        <Class abbreviatedIRI="sosa:FeatureOfInterest"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="sosa:hosts"/>
+        <Class abbreviatedIRI="sosa:Platform"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="sosa:isFeatureOfInterestOf"/>
+        <Class abbreviatedIRI="sosa:FeatureOfInterest"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="sosa:isHostedBy"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="sosa:Sensor"/>
+            <Class abbreviatedIRI="ssn:System"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="sosa:isObservedBy"/>
+        <Class abbreviatedIRI="sosa:Observation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="sosa:madeBySensor"/>
+        <Class abbreviatedIRI="sosa:Sensor"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="sosa:madeObservation"/>
+        <Class abbreviatedIRI="sosa:Sensor"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="sosa:observedProperty"/>
+        <Class abbreviatedIRI="sosa:Observation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="sosa:observes"/>
+        <Class abbreviatedIRI="sosa:Sensor"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#allowedQualitativeValue"/>
+        <Class IRI="#QualitativeDomain"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasAdmissibleValue"/>
+        <Class IRI="#ValueDomain"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasAlternativeValue"/>
+        <Class IRI="#Value"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasDimensionValue"/>
+        <Class IRI="#ValueDimension"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasDomainPartition"/>
+        <Class IRI="#Granularity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasExteriorBoundary"/>
+        <Class IRI="#SpatialRegion"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasGranularity"/>
+        <ObjectUnionOf>
+            <Class IRI="#Granularity"/>
+            <Class IRI="#QuantityKind"/>
+            <Class IRI="#Value"/>
+            <Class IRI="#ValueDomain"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasInnerTemporalSeries"/>
+        <Class IRI="#TemporalSeries"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasInternalBoundary"/>
+        <Class IRI="#SpatialRegion"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMeasurementUncertaintyInfo"/>
+        <Class IRI="#Value"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasOrderedSequenceOfPoints"/>
+        <Class IRI="#OrderedSequenceOfPoints"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasProfile"/>
+        <ObjectUnionOf>
+            <Class IRI="#MSAFeatureOfInterest"/>
+            <Class IRI="#MSALocation"/>
+            <Class IRI="#MSASensor"/>
+            <Class IRI="#MaritimeEvent"/>
+            <Class IRI="#MaritimeThreat"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasQuantityKind"/>
+        <Class IRI="#Value"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasSTValue"/>
+        <ObjectUnionOf>
+            <Class IRI="#SpatialSeries"/>
+            <Class IRI="#SpatialSet"/>
+            <Class IRI="#TemporalSeries"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasSpatialElement"/>
+        <Class IRI="#SpatialElement"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasSpatialEntity"/>
+        <ObjectUnionOf>
+            <Class IRI="#SpatialElement"/>
+            <Class IRI="#SpatialSeries"/>
+            <Class IRI="#SpatialSet"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasStartingPoint"/>
+        <Class IRI="#OrderedSequenceOfPoints"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasTemporalElement"/>
+        <Class IRI="#TemporalElement"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasTemporalEntity"/>
+        <ObjectUnionOf>
+            <Class IRI="#SpatialSeries"/>
+            <Class IRI="#TemporalElement"/>
+            <Class IRI="#TemporalSeries"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasUncertainty"/>
+        <Class IRI="#Value"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasUncertaintyInfo"/>
+        <Class IRI="#MeasurementUncertainty"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasUnitOfMeasure"/>
+        <ObjectUnionOf>
+            <Class IRI="#Granularity"/>
+            <Class IRI="#MSAScale"/>
+            <Class IRI="#QuantityKind"/>
+            <Class IRI="#Value"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasValueDimension"/>
+        <ObjectUnionOf>
+            <Class IRI="#MSAScale"/>
+            <Class IRI="#MSAUnitOfMeasure"/>
+            <Class IRI="#QuantityKind"/>
+            <Class IRI="#ValueDomain"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasValueDomain"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="sosa:ObservableProperty"/>
+            <Class IRI="#Granularity"/>
+            <Class IRI="#MSAScale"/>
+            <Class IRI="#QuantityKind"/>
+            <Class IRI="#Value"/>
+            <Class IRI="#ValueDomainPartition"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasValueScale"/>
+        <ObjectUnionOf>
+            <Class IRI="#Granularity"/>
+            <Class IRI="#QuantityKind"/>
+            <Class IRI="#Value"/>
+            <Class IRI="#ValueDomain"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isPropertyOf"/>
+        <Class abbreviatedIRI="sosa:ObservableProperty"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/iot/ontology/iot-stream/belongsTo"/>
+        <Class abbreviatedIRI="iot-stream:IotStream"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="om:commonlyHasUnit"/>
+        <Class abbreviatedIRI="om:Unit"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="om:hasDimension"/>
+        <Class abbreviatedIRI="om:Dimension"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="om:hasQuantity"/>
+        <Class abbreviatedIRI="om:Quantity"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="om:hasScale"/>
+        <Class abbreviatedIRI="om:Scale"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="om:hasUnit"/>
+        <Class abbreviatedIRI="om:Unit"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.semanticweb.org/ec/ontologies/2021/2/isDerivedFromIoTStream"/>
+        <Class abbreviatedIRI="iot-stream:IotStream"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="sosa:hasFeatureOfInterest"/>
+        <Class abbreviatedIRI="sosa:FeatureOfInterest"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="sosa:hasProperty"/>
+        <Class abbreviatedIRI="sosa:ObservableProperty"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="sosa:hosts"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="sosa:Sensor"/>
+            <Class abbreviatedIRI="ssn:System"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="sosa:isFeatureOfInterestOf"/>
+        <Class abbreviatedIRI="sosa:Observation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="sosa:isHostedBy"/>
+        <Class abbreviatedIRI="sosa:Platform"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="sosa:isObservedBy"/>
+        <Class abbreviatedIRI="sosa:Sensor"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="sosa:madeBySensor"/>
+        <Class abbreviatedIRI="sosa:Observation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="sosa:madeObservation"/>
+        <Class abbreviatedIRI="sosa:Observation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="sosa:observedProperty"/>
+        <Class abbreviatedIRI="sosa:ObservableProperty"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="sosa:observes"/>
+        <Class abbreviatedIRI="sosa:Observation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="sosa:phenomenonTime"/>
+        <Class abbreviatedIRI="time:TemporalEntity"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#allowedQualitativeValue"/>
+        <Class IRI="#QualitativeValue"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasAdmissibleValue"/>
+        <Class IRI="#Value"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasAlternativeValue"/>
+        <Class IRI="#Value"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasDimensionValue"/>
+        <Class IRI="#Value"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasDomainPartition"/>
+        <Class IRI="#ValueDomainPartition"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasExteriorBoundary"/>
+        <Class IRI="#OrderedSequenceOfPoints"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasGranularity"/>
+        <Class IRI="#Granularity"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasInnerTemporalSeries"/>
+        <Class IRI="#TemporalSeries"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasInternalBoundary"/>
+        <Class IRI="#OrderedSequenceOfPoints"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasOrderedSequenceOfPoints"/>
+        <Class IRI="#OrderedSequenceOfPoints"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasPosition"/>
+        <Class IRI="#MSALocation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasProfile"/>
+        <ObjectUnionOf>
+            <Class IRI="#FeatureOfInterestProfile"/>
+            <Class IRI="#LocationProfile"/>
+            <Class IRI="#MaritimeEventProfile"/>
+            <Class IRI="#MaritimeThreatProfile"/>
+            <Class IRI="#SensorProfile"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasSTValue"/>
+        <ObjectUnionOf>
+            <Class IRI="#QualitativeValue"/>
+            <Class IRI="#QuantitativeValue"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasSpatialElement"/>
+        <Class IRI="#SpatialElement"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasSpatialEntity"/>
+        <Class IRI="#SpatialEntity"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasSpatialValidity"/>
+        <Class IRI="#SpatialElement"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasStartingPoint"/>
+        <Class IRI="#SimpleLocation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasTemporalElement"/>
+        <Class IRI="#TemporalElement"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasTemporalEntity"/>
+        <Class abbreviatedIRI="time:TemporalEntity"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasTemporalValidity"/>
+        <Class IRI="#TemporalElement"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasUncertainty"/>
+        <Class IRI="#MeasurementUncertainty"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasUncertaintyInfo"/>
+        <Class IRI="#MeasurementUncertaintyInfo"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasUnitOfMeasure"/>
+        <Class IRI="#MSAUnitOfMeasure"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasValueDimension"/>
+        <Class IRI="#ValueDimension"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasValueDomain"/>
+        <Class IRI="#ValueDomain"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasValueScale"/>
+        <Class IRI="#MSAScale"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isPropertyOf"/>
+        <Class abbreviatedIRI="sosa:FeatureOfInterest"/>
+    </ObjectPropertyRange>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#categoricalValue"/>
+        <DataProperty IRI="#hasValue"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasValue"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#name"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#numericValue"/>
+        <DataProperty IRI="#hasValue"/>
+    </SubDataPropertyOf>
+    <DataPropertyDomain>
+        <DataProperty IRI="#description"/>
+        <Class abbreviatedIRI="sosa:ObservableProperty"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#description"/>
+        <Class IRI="#MSASensor"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="geo:alt"/>
+        <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="geo:lat"/>
+        <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="geo:long"/>
+        <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="sosa:resultTime"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:comment"/>
+        <AbbreviatedIRI>iot-stream:Analytics</AbbreviatedIRI>
+        <Literal>The data analytics that has been applied to the IoT data stream.
+
+[http://iot.ee.surrey.ac.uk/iot-crawler/ontology/iot-stream/#Analytics]
+
+(IoTStream) Analytics are specified here as an (Observation) Procedure</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:comment"/>
+        <AbbreviatedIRI>iot-stream:IotStream</AbbreviatedIRI>
+        <Literal>An abstraction that represents an IoT data stream that is generated by an IoT source. The IoTStream is the central concept in the ontology, whereby continuous stream observations belong to. It has a lifetime whch is defined by the stream start time and end time.
+[http://iot.ee.surrey.ac.uk/iot-crawler/ontology/iot-stream/#IotStream]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <AbbreviatedIRI>om:Dimension</AbbreviatedIRI>
+        <Literal>&quot;Dimensions are abstract properties of units and quantities neglecting their vectorial or tensorial character and all numerical factors including their sign.&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <AbbreviatedIRI>om:Quantity</AbbreviatedIRI>
+        <Literal>&quot;A quantity is a representation of a quantifiable (standardised) aspect (such as length, mass, and time) of a phenomenon (e.g., a star, a molecule, or a food product). Quantities are classified according to similarity in their (implicit) metrological aspect, e.g. the length of my table and the length of my chair are both classified as length.&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <AbbreviatedIRI>om:Quantity</AbbreviatedIRI>
+        <Literal>Quantity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#seeAlso"/>
+        <AbbreviatedIRI>om:Quantity</AbbreviatedIRI>
+        <Literal>qudt:QuantityKind
+qu:QuantityKind</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <AbbreviatedIRI>om:Scale</AbbreviatedIRI>
+        <Literal>Scale</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <AbbreviatedIRI>om:Scale</AbbreviatedIRI>
+        <Literal>measurement scale</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <AbbreviatedIRI>om:Unit</AbbreviatedIRI>
+        <Literal>&quot;A unit of measure is a definite magnitude of a quantity, defined and adopted by convention or by law. It is used as a standard for measurement of the same quantity, where any other value of the quantity can be expressed as a simple multiple of the unit. For example, length is a quantity; the metre is a unit of length that represents a definite predetermined length. When we say 10 metre (or 10 m), we actually mean 10 times the definite predetermined length called &quot;metre&quot;.&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <AbbreviatedIRI>om:Unit</AbbreviatedIRI>
+        <Literal>Unit</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#seeAlso"/>
+        <AbbreviatedIRI>om:Unit</AbbreviatedIRI>
+        <Literal>qudt:Unit
+qu:Unit
+ISO TS 1903:2015</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:comment"/>
+        <IRI>http://www.semanticweb.org/ec/ontologies/2021/2/isDerivedFrom</IRI>
+        <Literal>Links an Observation to one of more observations analysed to obtain it. This property models provenance of observations.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:domain"/>
+        <IRI>http://www.semanticweb.org/ec/ontologies/2021/2/isDerivedFrom</IRI>
+        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:range"/>
+        <IRI>http://www.semanticweb.org/ec/ontologies/2021/2/isDerivedFrom</IRI>
+        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:comment"/>
+        <IRI>http://www.semanticweb.org/ec/ontologies/2021/2/isDerivedFromIoTStream</IRI>
+        <Literal>Links an Observation to the IoTStream analysed to obtain it. This property models provenance of observations.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:domain"/>
+        <IRI>http://www.semanticweb.org/ec/ontologies/2021/2/isDerivedFromIoTStream</IRI>
+        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:range"/>
+        <IRI>http://www.semanticweb.org/ec/ontologies/2021/2/isDerivedFromIoTStream</IRI>
+        <IRI>http://www.semanticweb.org/ec/ontologies/2021/2/IotStream</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <AbbreviatedIRI>geo:altitude</AbbreviatedIRI>
+        <Literal>The WGS84 altitude of a SpatialThing (decimal meters 
+above the local reference ellipsoid).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <AbbreviatedIRI>geo:latitude</AbbreviatedIRI>
+        <Literal>The WGS84 latitude of a SpatialThing (decimal degrees).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <AbbreviatedIRI>geo:longitude</AbbreviatedIRI>
+        <Literal>The WGS84 longitude of a SpatialThing (decimal degrees).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <AbbreviatedIRI>time:Interval</AbbreviatedIRI>
+        <Literal>&quot;A temporal entity with an extent or duration&quot; 
+see https://www.w3.org/TR/owl-time/#time:Interval</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#seeAlso"/>
+        <AbbreviatedIRI>time:Interval</AbbreviatedIRI>
+        <Literal>eucise: Period</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <AbbreviatedIRI>time:TemporalEntity</AbbreviatedIRI>
+        <Literal>&quot;A temporal interval or instant.&quot;
+see https://www.w3.org/TR/owl-time/#time:TemporalEntity
+see https://www.w3.org/TR/owl-time/#topology</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:comment"/>
+        <AbbreviatedIRI>sosa:FeatureOfInterest</AbbreviatedIRI>
+        <Literal>The thing whose property is being estimated or calculated in the course of an Observation to arrive at a Result, or whose property is being manipulated by an Actuator, or which is being sampled or transformed in an act of Sampling. [https://www.w3.org/TR/vocab-ssn/#SOSAFeatureOfInterest]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:comment"/>
+        <AbbreviatedIRI>sosa:ObservableProperty</AbbreviatedIRI>
+        <Literal>An observable quality (property, characteristic) of a FeatureOfInterest. [https://www.w3.org/TR/vocab-ssn/#SOSAObservableProperty]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:comment"/>
+        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
+        <Literal>Act of carrying out an (Observation) Procedure to estimate or calculate a value of a property of a FeatureOfInterest. Links to a Sensor to describe what made the Observation and how; links to an ObservableProperty to describe what the result is an estimate of, and to a FeatureOfInterest to detail what that property was associated with. [https://www.w3.org/TR/vocab-ssn/#SOSAObservation]
+
+Observation records the actual information collected throug an experiment, algorithm or software execution run.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:comment"/>
+        <AbbreviatedIRI>sosa:Platform</AbbreviatedIRI>
+        <Literal>A Platform is an entity that hosts other entities, particularly Sensors, Actuators, Samplers, and other Platforms. [https://www.w3.org/TR/vocab-ssn/#SOSAPlatform]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:comment"/>
+        <AbbreviatedIRI>sosa:Procedure</AbbreviatedIRI>
+        <Literal>A workflow, protocol, plan, algorithm, or computational method specifying how to make an Observation, create a Sample, or make a change to the state of the world (via an Actuator). A Procedure is re-usable, and might be involved in many Observations, Samplings, or Actuations. It explains the steps to be carried out to arrive at reproducible Results. [https://www.w3.org/TR/vocab-ssn/#SOSAProcedure]
+
+A Procedure describes the experiment specification, e.g., the recipe, algorithm or workflow as it has been executed, including the values of the algorithm parameters, and links to the information used in input and output.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#seeAlso"/>
+        <AbbreviatedIRI>sosa:Result</AbbreviatedIRI>
+        <Literal>om-2:measure
+qudt:QuantityValue
+ssn:ObservationValue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:comment"/>
+        <AbbreviatedIRI>sosa:Result</AbbreviatedIRI>
+        <Literal>The Result of an Observation, Actuation, or act of Sampling. To store an observation&apos;s simple result value one can use the hasSimpleResult property. [https://www.w3.org/TR/vocab-ssn/#SOSAResult]
+
+Result includes the value of the observation procedure and its unit of measure.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:comment"/>
+        <AbbreviatedIRI>sosa:Sensor</AbbreviatedIRI>
+        <Literal>Device, agent (including humans), or software (simulation) involved in, or implementing, a Procedure. Sensors respond to a Stimulus, e.g., a change in the environment, or Input data composed from the Results of prior Observations, and generate a Result. Sensors can be hosted by Platforms.[https://www.w3.org/TR/vocab-ssn/#SOSASensor]
+
+Sensor can represent the software used to executed an observation procedure.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:subClassOf"/>
+        <AbbreviatedIRI>sosa:Sensor</AbbreviatedIRI>
+        <AbbreviatedIRI>ssn:System</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:domain"/>
+        <AbbreviatedIRI>sosa:hasProperty</AbbreviatedIRI>
+        <AbbreviatedIRI>sosa:FeatureOfInterest</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:comment"/>
+        <AbbreviatedIRI>sosa:hosts</AbbreviatedIRI>
+        <Literal>Relation between a Platform and a Sensor, Actuator, Sampler, or Platform, hosted or mounted on it. [https://www.w3.org/TR/vocab-ssn/#SOSAPlatform]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:domain"/>
+        <AbbreviatedIRI>sosa:hosts</AbbreviatedIRI>
+        <AbbreviatedIRI>sosa:Platform</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:range"/>
+        <AbbreviatedIRI>sosa:hosts</AbbreviatedIRI>
+        <AbbreviatedIRI>sosa:Sensor</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:range"/>
+        <AbbreviatedIRI>sosa:hosts</AbbreviatedIRI>
+        <AbbreviatedIRI>ssn:System</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:domain"/>
+        <AbbreviatedIRI>sosa:isHostedBy</AbbreviatedIRI>
+        <AbbreviatedIRI>sosa:Sensor</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:domain"/>
+        <AbbreviatedIRI>sosa:isHostedBy</AbbreviatedIRI>
+        <AbbreviatedIRI>ssn:System</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:range"/>
+        <AbbreviatedIRI>sosa:isHostedBy</AbbreviatedIRI>
+        <AbbreviatedIRI>sosa:Platform</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:domain"/>
+        <AbbreviatedIRI>sosa:usedProcedure</AbbreviatedIRI>
+        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:range"/>
+        <AbbreviatedIRI>sosa:usedProcedure</AbbreviatedIRI>
+        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:comment"/>
+        <AbbreviatedIRI>ssn:System</AbbreviatedIRI>
+        <Literal>System is a unit of abstraction for pieces of infrastructure that implement Procedures. A System may have components, its subsystems, which are other Systems.[https://www.w3.org/TR/vocab-ssn/#SSNSystem]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:domain"/>
+        <AbbreviatedIRI>ssn:implements</AbbreviatedIRI>
+        <AbbreviatedIRI>ssn:System</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:range"/>
+        <AbbreviatedIRI>ssn:implements</AbbreviatedIRI>
+        <AbbreviatedIRI>sosa:Procedure</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#AIS_SART_active</IRI>
+        <Literal>navigational status</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#seeAlso"/>
+        <IRI>#AreaOfInterest</IRI>
+        <Literal>[https://www.semanticweb.org/ROBORDER/eucise#Location]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#AutomaticIdentificationSystem</IRI>
+        <Literal>AIS acquisition system or antenna. Can be used to model the receiver or a complex acquisition system doing (preliminary) data processing (e.g., decoding, cleaning, sentence joining) or data fusion</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#BrestAISReceiver</IRI>
+        <Literal xml:lang="en">Ecole Naval AIS receiver located in Brest, at (48.35,-4.57)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#BrestAISReceiver</IRI>
+        <Literal xml:lang="en">Brest AIS receiver</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#ComplexEventForecastingAlgorithm</IRI>
+        <Literal>Complex Event Forecasting algorithm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#ComplexEventRecognitionAlgorithm</IRI>
+        <Literal>Complex Event Recognition algorithm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#DANCE</IRI>
+        <Literal xml:lang="en">Distributed autonomous collaborative target detection and localisation system based on real-time acoustic-sensor data, deployed on the CMRE  robotic network</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#DANCE</IRI>
+        <Literal xml:lang="en">DANCE</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#DANCE</IRI>
+        <Literal>Distributed AUV Network Control and Estimation (DANCE)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#DANCEAlgorithm</IRI>
+        <Literal>DANCE (Distributed AUV Network Control and Estimation) Collaborative real-time fusion algorithm for target detection and localisation based on acoustic vector sensor signals</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#DANCEAlgorithm</IRI>
+        <Literal>DANCE fusion algorithm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#FusionAlgorithm</IRI>
+        <Literal>e.g., the MSA fusion algorithm to process sensor data</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#INFOREAISProcessingAlgorithm</IRI>
+        <Literal>AIS processing algorithm applied by INFORE</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#INFOREAISProcessingAlgorithm</IRI>
+        <Literal xml:lang="en">INFORE AIS processing algorithm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#INFOREAISProcessingSystem</IRI>
+        <Literal>AIS processing module integrated in the INFORE MSA platform</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#INFOREAISProcessingSystem</IRI>
+        <Literal>INFORE AIS Processing System</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#INFOREFusionSystem</IRI>
+        <Literal xml:lang="en">INFORE Information fusion engine. 
+It is an Akka-based distributed system that efficiently fuses different kinds of maritime data.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#INFOREFusionSystem</IRI>
+        <Literal xml:lang="en">INFORE information fusion system</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#INFOREInformationFusionAlgorithm</IRI>
+        <Literal>INFORE information fusion algorithm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#MSAFeatureOfInterest</IRI>
+        <Literal>An Observable in an MSA scenario</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:subClassOf"/>
+        <IRI>#MSAFeatureOfInterest</IRI>
+        <AbbreviatedIRI>sosa:FeatureOfInterest</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#MSALocation</IRI>
+        <Literal>The instances of this class are intrinsically spatio-temporal</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#seeAlso"/>
+        <IRI>#MSALocation</IRI>
+        <Literal>geo:SpatialThing</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#MSAObservation</IRI>
+        <Literal>MSAObservations are intrinsically spatio-temporal. A spatial and temporal vality are defined for them</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:subClassOf"/>
+        <IRI>#MSAObservation</IRI>
+        <AbbreviatedIRI>sosa:Observation</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:subClassOf"/>
+        <IRI>#MSAObservation</IRI>
+        <IRI>#MSAFeatureOfInterest</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:subClassOf"/>
+        <IRI>#MSASensor</IRI>
+        <AbbreviatedIRI>sosa:Sensor</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sosa:subClassOf"/>
+        <IRI>#MSASensor</IRI>
+        <IRI>#MSAFeatureOfInterest</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#MeasurementUncertainty</IRI>
+        <Literal>Measure of uncertainty associated to a value. 
+
+Leveraging the  guidelines for reporting uncertainty as specified in &quot;GUM - Guide to the Expression of Uncertainty in Measurement&quot; (https://www.iso.org/sites/JCGM/GUM/JCGM100/C045315e-html/C045315e.html?csnumber=50461), this can be expressed for example as standard uncertainty, relative combined standard uncertainty, expanded uncertainty. The uncertainty specification is complemented by the associated Measurement Uncertainty Information.
+
+Together with QualityObservation, supports a complet model for Information quality.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#MeasurementUncertaintyInfo</IRI>
+        <Literal>Complement a Measurement Uncertainty  . to completly specify the uncertainty associated to a value. 
+
+Leverage the  guidelines for reporting uncertainty as specified in &quot;GUM - Guide to the Expression of Uncertainty in Measurement&quot; (https://www.iso.org/sites/JCGM/GUM/JCGM100/C045315e-html/C045315e.html?csnumber=50461)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#seeAlso"/>
+        <IRI>#MeasurementUncertaintyInfo</IRI>
+        <Literal>ISO 19157:2013 (E) quality measures</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#MediterraneanForecastSystem</IRI>
+        <Literal>Stream analytics</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#MultispectralImageTargetClassificationAlgorithm</IRI>
+        <Literal xml:lang="en">Multi-spectral image target classification algorithm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#MultispectralImageTargetClassifier</IRI>
+        <Literal xml:lang="en">Multi-spectral image target classifier</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#NARIAISProcessingSystem</IRI>
+        <Literal>NARI AIS Processing System</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#NARIAISprocessingAlgorithm</IRI>
+        <Literal>NARI AIS processing algorithm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#NRVAllianceAIS</IRI>
+        <Literal xml:lang="en">NRV Alliance AIS</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#NRVAllianceRadar</IRI>
+        <Literal xml:lang="en">NRV Alliance Radar</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#OccupancyGridMapping</IRI>
+        <Literal xml:lang="en">Occupancy Grid Mapping</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#OrderedSequenceOfPoints</IRI>
+        <Literal>Ordered sequence of geo-referenced points.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#PERSEUSPassiveAcousticSensor</IRI>
+        <Literal xml:lang="en">Compact passive acoustic vector (three dimensional) array developed  by CMRE during the PERSEUS FP7 project.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#PERSEUSPassiveAcousticSensor</IRI>
+        <Literal xml:lang="en">PERSEUS</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#QualitativeValue</IRI>
+        <Literal>Categorical, or qualitative, value, descriptive of a class of values. Introduced to support EUCISE enumerations</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#QualityDimension</IRI>
+        <Literal>Information Quality dimensions and metrics. The intended use of the instances in this class is to characterize the quality of information from information sources (e.g. sensors).
+
+IQ dimensions include quality metrics for objective and subjective sources, and for information presentation (Bossé Rogova, 2019). 
+
+Many taxonomies have been define to describe data and information qualities. We mainly refer to the work of Batini and Scannapieco (2016) and Rogova (2019). 
+
+Carlo Batini and Monica Scannapieco,. Data and Information Quality - Dimensions, Principles and Techniques. Data-Centric Systems and Applications, Springer 2016
+Éloi Bossé and Galina L. Rogova (eds). Information Quality in Information Fusion and Decision Making , Springer Nature Switzerland AG 2019</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#seeAlso"/>
+        <IRI>#QuantitativeValue</IRI>
+        <Literal>qudt:QuantityValue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#SAR_search_and_rescue</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#SAR_search_and_rescue_aircraft</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#SeaSurfaceVehicleProperty</IRI>
+        <Literal>Property taxonomy of  Surface Vehicles or Target (e.g., Vessels, WaveGliders)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#SensorProperty</IRI>
+        <Literal>Sensor Properties taxonomy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#Sentinel2-MSI</IRI>
+        <Literal xml:lang="en">Sentinel2 MultiSpectral Instrument (MSI). This sensor is part of the INFORE HSN</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#Sentinel2-MSI</IRI>
+        <Literal xml:lang="en">Sentinel2 MultiSpectral Instrument (MSI)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#SpatialBoundary</IRI>
+        <Literal>Geographical boundary or a region, defined as closed ordered sequence of geo-referenced points. 
+No geometrical check is enforced on the validity of the boundary (e.g., to be
+non-crossing and closed).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#SpatialElement</IRI>
+        <Literal>inspired by Gadia&apos;88</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#SpatialRegion</IRI>
+        <Literal>Spatial region defined by at least one exterior boundary and zero or more interior boundaries. No geometrical check is enforced on the validity of the boundaries (e.g., to be closed list of points, non-crossing internal and external boundaries).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#SpatialSeries</IRI>
+        <Literal>Series of spatio-temporal value, i.e., an ordered list of triple (gt,gs, v) where 
+- gt is a temporal granule (modelled here as time:TemporalEntity), 
+- gs is a spatial granule (modelled here as an individual of SpatialEntity, and
+- v is a quantitative or qualitative value (as instance of QuantitativeValue or QualitativeValue)
+
+Note that the associated granularities and value types  can be heterogeneous</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#SpatialSet</IRI>
+        <Literal>Group of spatial values, set of pair (gs, v) where 
+- gs is a spatial granule (modelled here as an individual of SpatialEntity, and
+- v is a quantitative or qualitative value (as instance of QuantitativeValue or QualitativeValue)
+
+Note that the associated spatial granularities and value types  can be heterogeneous</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#TemporalElement</IRI>
+        <Literal>inspired by Gadia&apos;88</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#TemporalSeries</IRI>
+        <Literal>Temporal series, and more generically temporal values, i.e., a list of pairs (g,v) where 
+- g is a temporal granule (modelled here as time:TemporalEntity), and 
+- v is a quantitative or qualitative value (as instance of QuantitativeValue or QualitativeValue)
+
+Note that the associated temporal granularities and value types  can be heterogeneous</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#USVObservableProperty</IRI>
+        <Literal>Property taxonomy of Unmanned Surface Vehicles (e.g., WaveGliders)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#UnderwaterVehicleProperty</IRI>
+        <Literal>Property taxonomy of Underwater Vehicles or Targets</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#ValueDomainPartition</IRI>
+        <Literal>Partition of a domain of value. It can be extensively represented (e.g., list of granules included in the partition) or can be defined by a function from a set of indexes to the domain partition (f: N -&gt;P(D))</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#ValueDomainPartition</IRI>
+        <Literal>not sure if it is necessary</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#VehicleProperty</IRI>
+        <Literal>Property taxonomy of Vehicles or Targets (any type)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#VesselObservableProperty</IRI>
+        <Literal>Property taxonomy of Vessels</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#Vessel_228015700</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">F/V FARPESCA</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#Vessel_228109000</IRI>
+        <Literal>F/V KAN AN AEL</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#Vessel_228133000</IRI>
+        <Literal xml:lang="en">F/V LES VIKINGS 2</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#Vessel_228827000</IRI>
+        <Literal xml:lang="en">F/V OCEANE</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#WG1Compass</IRI>
+        <Literal xml:lang="en">Compass on board of Wave Glider</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#WG1GPS</IRI>
+        <Literal xml:lang="en">Global Positioning System on board of Wave Glider</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#WG1Waterspeed</IRI>
+        <Literal xml:lang="en">Waterspeed sensor on board of Wave Glider</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#WG2Compass</IRI>
+        <Literal xml:lang="en">Compass on board of Wave Glider</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#WG2GPS</IRI>
+        <Literal xml:lang="en">Global Positioning System on board of Wave Glider</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#WG2Waterspeed</IRI>
+        <Literal xml:lang="en">Waterspeed sensor on board of Wave Glider</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#WaveGlider1Backseat</IRI>
+        <Literal>Robotic data processing platform</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#WaveGlider1Backseat</IRI>
+        <Literal xml:lang="en">Wave Glider 2 Backseat</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#WaveGlider1Frontseat</IRI>
+        <Literal>Robotic navigation platform</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#WaveGlider1Frontseat</IRI>
+        <Literal xml:lang="en">Wave Glider 1 Frontseat</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#WaveGlider1TowFish</IRI>
+        <Literal xml:lang="en">Wave Glider tow-fish body to host acoustic sensor arrays.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#WaveGlider1TowFish</IRI>
+        <Literal xml:lang="en">Wave Glider 1 tow-fish</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#WaveGlider1backseat</IRI>
+        <Literal>Robotic data processing platform</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#WaveGlider1backseat</IRI>
+        <Literal>Wave Glider 1 Backseat</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#WaveGlider2Frontseat</IRI>
+        <Literal>Robotic navigation platform</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#WaveGlider2Frontseat</IRI>
+        <Literal>Wave Glider 2 Frontseat</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#WaveGlider2Towfish</IRI>
+        <Literal>Wave Glider tow-fish body to host acoustic sensor arrays.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#WaveGlider2Towfish</IRI>
+        <Literal>Wave Glider 2 tow-fish</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#aground</IRI>
+        <Literal>navigational status</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#anti_pollution_special_craft</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#cargo</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#cargo_hazard-A-major</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#cargo_hazard-B</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#cargo_hazard-C-minor</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#cargo_hazard-D-recognizable</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#cause</IRI>
+        <Literal>eucise: Object Role and ecise: Agent Role</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#causes</IRI>
+        <Literal>eucise: Event role</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#complexMaritimeEventDomain</IRI>
+        <Literal>Complex Maritime Event Domain</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#conformal</IRI>
+        <Literal>Conformance value</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#coordinator</IRI>
+        <Literal>eucise: Object Role and ecise: Agent Role</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#declared</IRI>
+        <Literal>eucise: Qualitative Nature</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#dive_vessel_special_craft</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#dredger_special_craft</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#encompasses</IRI>
+        <Literal>eucise: Event role</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#engagedInFishing</IRI>
+        <Literal>navigational status</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#estimated</IRI>
+        <Literal>eucise: Qualitative Nature</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#extreme</IRI>
+        <Literal>eucise: Incident Urgency</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#fishing_vessel</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#forecast</IRI>
+        <Literal>eucise: Qualitative temporal validity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#high-speed_craft</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#imo</IRI>
+        <Literal>vessel identifier</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#informed</IRI>
+        <Literal>eucise: Object Role and eucise: Agent Role</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#law_enforce_special_craft</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#local_vessel_special_craft</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#medical_transport_special_craft</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#military_operations_special_craft</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#minor</IRI>
+        <Literal>eucise: Incident Urgency</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#mmsi</IRI>
+        <Literal>vessel identifier</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#moderate</IRI>
+        <Literal>eucise: Incident Urgency</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#msaevent</IRI>
+        <Literal>MSA occurrent.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#msathreat</IRI>
+        <Literal>MSA situation of interest for safety or security</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#navigation_status</IRI>
+        <Literal>e.g. vessel status (of navigation). 
+It can be numeric or string (e.g., 1 -  at anchor)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#non-conformal</IRI>
+        <Literal>Conformance value</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#not_defined</IRI>
+        <Literal>navigational status</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#nowcast</IRI>
+        <Literal>eucise: Qualitative temporal validity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#observed</IRI>
+        <Literal>eucise: Qualitative Nature</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#observer</IRI>
+        <Literal>eucise: Object Role and ecise: Agent Role</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#other</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#participant</IRI>
+        <Literal>eucise: Object Role and ecise: Agent Role</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#passenger</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#perpetrator</IRI>
+        <Literal>eucise: Object Role and ecise: Agent Role</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#pilot_vessel_special_craft</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#pleasure_craft</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#port_tender_special_craft</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#position</IRI>
+        <Literal>Geographical position on Earth of a vehicle, determined by its latitude and longitude. It is dynamic, and it is an intrinsically temporal property.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#prevents</IRI>
+        <Literal>eucise: Event role</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#qualitative_nature_domain</IRI>
+        <Literal xml:lang="en">Qualitative nature domain</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#seeAlso"/>
+        <IRI>#qualitative_nature_domain</IRI>
+        <Literal xml:lang="en">eucise: Qualitative Nature</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#qualitative_temporal_nature_domain</IRI>
+        <Literal xml:lang="en">Qualitative temporal nature domain</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#seeAlso"/>
+        <IRI>#qualitative_temporal_nature_domain</IRI>
+        <Literal xml:lang="en">eucise: QualitativeNature</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#reanalysis</IRI>
+        <Literal>eucise: Qualitative temporal validity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#reporter</IRI>
+        <Literal>eucise: Object Role and ecise: Agent Role</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#requires</IRI>
+        <Literal>eucise: Event role</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#reserved</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#reserved_for_future_amendment_of_navigational_status_for_ships_carrying_dangerous_goods</IRI>
+        <Literal>navigational status</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#reserverd_for_future_use</IRI>
+        <Literal>navigational status</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#responds</IRI>
+        <Literal>eucise: Event role</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#role</IRI>
+        <Literal>Quality describing the role played by entities in events and situations.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#sailing_vessel</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#severe</IRI>
+        <Literal>eucise: Incident Urgency</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#simpleMaritimeEventDomain</IRI>
+        <Literal xml:lang="en">Simple maritime event domain</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#simulated</IRI>
+        <Literal>eucise: Qualitative Nature</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#special_craft</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#status</IRI>
+        <Literal>Quality describing the status of entities.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#synopsesDataEngine</IRI>
+        <Literal xml:lang="en">INFORE Synopsis data engine (SDE)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#synopsesDataEngine</IRI>
+        <Literal xml:lang="en">Synopsis data engine (SDE)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#tanker</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#tanker_hazard-A-major</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#tanker_hazard-B</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#tanker_hazard-C-minor</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#tanker_hazard-D-recognizable</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#tug</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#type</IRI>
+        <Literal>e.g. vessel type. It can be numeric or string (e.g., 30 - Fishing vessel)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#underWaySailing</IRI>
+        <Literal>navigational status</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#validated</IRI>
+        <Literal>eucise: Qualitative Nature</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#vessel_activity_domain</IRI>
+        <Literal xml:lang="en">Vessel activity domain</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#vessel_status_domain</IRI>
+        <Literal xml:lang="en">Vessel status domain</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <IRI>#vessel_type_domain</IRI>
+        <Literal xml:lang="en">Vessel type domain</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#victim</IRI>
+        <Literal>eucise: Object Role and ecise: Agent Role</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#weatherevent</IRI>
+        <Literal>Environmental event or phenomenon</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#wing_in_ground</IRI>
+        <Literal>Vessel type. See also https://help.marinetraffic.com/hc/en-us/articles/205579997-What-is-the-significance-of-the-AIS-Shiptype-number-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <IRI>#CER/CEF</IRI>
+        <Literal xml:lang="en">NCRS Complex Event Recognition and Forecasting software</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <AbbreviatedIRI>eucise:Event</AbbreviatedIRI>
+        <Literal>&quot;The Event is one of the core entities of the overall data model of the information sharing environment. It is an entity which holds information about movements, anomalies, incidents or actions which occur in the maritime domain. Event can have relationships with other events, objects, agents, documents, periods and locations. Event can also be related to risks in different roles. Event is an abstract entity which has four sub-entities: Movement, Anomaly, Incident and Action.&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <AbbreviatedIRI>eucise:Object</AbbreviatedIRI>
+        <Literal>&quot;The Object entity is one of the core entities of the overall data model. It is an abstract entity (it cannot been used as such) that holds information about physical entities from the maritime domain like vehicles (vessels, aircrafts and land vehicles) and cargo. Object has relationships with Event, Agent, Document, Risk and Location. Object can also be associated with another Object.&quot; [https://www.semanticweb.org/ROBORDER/eucise#Object]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <AbbreviatedIRI>eucise:Vehicle</AbbreviatedIRI>
+        <Literal>&quot;The Vehicle is a sub-class of Object and is used to determine types of physical moving objects related to maritime. The class Vehicle inherits the attributes and relationships of Object. Vehicle has three sub-classes: Vessel, Aircraft and LandVehicle.&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <AbbreviatedIRI>eucise:Vessel</AbbreviatedIRI>
+        <Literal>&quot;The class Vessel is a sub-class of the class Vehicle. A vessel refers to a ship or a boat. Vessel has the same associations and relationships than its parent-classes Vehicle and Object. Thus it can have relationship with Document, Risk, Event, Location, and Agent. It can also be associated with OperationalAsset.&quot;</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

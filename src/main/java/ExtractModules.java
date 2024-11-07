@@ -912,6 +912,16 @@ public class ExtractModules {
         List<OWLEntity> extensions = new ArrayList<>();
 //        OWLDataFactory df = new OWLDataFactoryImpl();
         module.getAxioms().forEach(k -> {
+            if (k.isOfType(AxiomType.SAME_INDIVIDUAL) || k.isOfType(AxiomType.DIFFERENT_INDIVIDUALS)){
+                if (k.containsEntityInSignature(base)) {
+                    k.getIndividualsInSignature().forEach(z -> {
+                        if (z.compareTo(base) != 0) {
+//                                logger.info("Based on " + k + ":\n In module of: " + base + " added " + z + " because " + k.getAxiomType() + " exists in module");
+                            extensions.add(z);
+                        }
+                    });
+                }
+            }
             leads.forEach(p -> {
                 if (k.containsEntityInSignature(p)){
                     if (k.getIndividualsInSignature().contains(base)) {

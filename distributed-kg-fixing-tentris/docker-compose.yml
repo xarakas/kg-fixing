@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  tentris-triplestore:
+    build: .
+    container_name: tentris-triplestore
+    volumes:
+      - ./tentris-bin:/mnt/tentris-bin
+      - ./data:/mnt/data
+      - ./logs/load_logs:/mnt/logs/load_logs
+      - ./logs/serve_logs:/mnt/logs/serve_logs
+    ports:
+      - "9081:9080"
+    stdin_open: true
+    tty: true

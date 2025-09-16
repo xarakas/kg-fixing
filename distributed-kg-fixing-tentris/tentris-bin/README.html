@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>USER_GUIDE</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">:root {
+--ug-gray: #f6f8fa;
+}
+*:not(code) {
+font-family: Arial, sans-serif;
+}
+code {
+background-color: var(--ug-gray);
+padding: 3px;
+border-radius: 5px;
+}
+pre code {
+display: flex;
+border-radius: 5px;
+padding: 15px;
+margin-left: 20px;
+margin-right: 20px;
+}
+blockquote {
+background-color: var(--ug-gray);
+padding: 1px 7px;
+border-radius: 5px;
+margin: 0 20px;
+}
+blockquote code {
+background-color: white;
+}
+</style>
+</head>
+<body>
+<h1 id="tᴇɴᴛʀɪs-user-guide">Tᴇɴᴛʀɪs User Guide</h1>
+<p>Tᴇɴᴛʀɪs runs on any fairly recent Linux distribution.</p>
+<h2 id="getting-started">Getting Started</h2>
+<ul>
+<li><p>Creating and using an empty database</p>
+<pre class="shell"><code>./tentris init
+./tentris serve</code></pre></li>
+<li><p>Loading a file (example: loading
+<code>/home/user/swdf.nt</code>)</p>
+<pre class="shell"><code>./tentris load &lt; /home/user/swdf.nt  # Insert actual path here
+./tentris serve</code></pre></li>
+<li><p>Loading triples into a graph (example: loading
+<code>/home/user/swdf.nt</code> into
+<code>http://example.com#graph</code>)</p>
+<pre class="shell"><code>./tentris load --into-graph &quot;http://example.com#graph&quot; &lt; /home/user/swdf.nt</code></pre></li>
+<li><p>Loading multiple files (example: loading both
+<code>/home/user/rdf1.nt</code> and <code>/home/user/rdf2.nt</code>)</p>
+<p>On filesystems without reflink support (e.g. ext4) creating many
+intermediate snapshots for loading may be problematic, as it bloats the
+datastore size. To avoid this issue you can use
+<code>load --force-no-snapshot</code> to inhibit intermediate
+snapshots:</p>
+<pre class="shell"><code>./tentris load --force-no-snapshot &lt; /home/user/rdf1.nt  # does not create a snapshot after loading
+./tentris load &lt; /home/user/rdf2.nt  # creates a snapshot after loading
+./tentris serve</code></pre>
+<p>Note it is advised that you load the last dataset without
+<code>--force-no-snapshot</code> or manually create one (with
+<code>tentris snapshot create</code>) to avoid potential data loss.</p>
+<p>If you know your way around the terminal you might have also had the
+idea to use <code>cat</code> with <code>tentris load</code> to achieve
+this behaviour:</p>
+<pre class="shell"><code>cat /home/user/rdf1.nt /home/user/rdf2.nt | ./tentris load
+./tentris serve</code></pre>
+<p>This however has slightly different semantics as the two datasets are
+now considered to be part of the same dataset. This affects how blank
+nodes are assigned. For example, if the two datasets share blank nodes
+the blank nodes will be considered equivalent instead of being separate
+entities. This might not be intended.</p></li>
+<li><p>By default, Tᴇɴᴛʀɪs creates the database in the current working
+directory. See</p>
+<pre class="shell"><code>./tentris --help</code></pre>
+<p>for more options (e.g. specifying the database directory), or</p>
+<pre class="shell"><code>./tentris serve --help  # you can put any subcommand in place of `serve`</code></pre>
+<p>for more options for a specfic subcommand.</p></li>
+<li><p>You can query the database via the UI at <a href="http://localhost:9080/ui">http://localhost:9080/ui</a>.</p></li>
+</ul>
+<h2 id="getting-started-with-the-docker-image">Getting Started with the
+Docker Image</h2>
+<h3 id="using-the-image-from-our-docker-registry">Using the Image from
+our Docker Registry</h3>
+<pre class="shell"><code>docker login hub.cs.upb.de -u &quot;tentris-docker-read-access&quot; -p &quot;K6xaFyPJxBXLfAgs6s1c&quot;
+docker pull hub.cs.upb.de/tentris/tentris:v0.6.0 # get a specific version, e.g., v0.6.0
+docker pull hub.cs.upb.de/tentris/tentris:latest # get the latest</code></pre>
+<p>To start the container, use the following command.<br />
+<strong>Note:</strong> the <code>./data</code> directory must exist and
+must be accessible to the container. To load data, you may use <a href="https://www.w3.org/TR/sparql11-http-rdf-update/">Graph Store
+Protocol</a> or any other methods that SPARQL 1.1 provides.</p>
+<pre class="shell"><code>docker run -it -v ./data:/data -p 9080:9080 hub.cs.upb.de/tentris/tentris:latest
+
+# Note: for docker versions older than v23 you need to provide an absolute path or a volume name for the -v argument
+# e.g. -v /home/user/data:/data or -v data:/data</code></pre>
+<h3 id="container-image-structure">Container Image Structure</h3>
+<h4 id="environment-variables">Environment Variables</h4>
+<ul>
+<li><code>TENTRIS_DEFAULT_GRAPH_MODE</code>: optional, valid values:
+standalone or union, sets the mode for the default graph (default is
+standalone)</li>
+<li><code>TENTRIS_USER</code>: optional, string, username to access the
+Tᴇɴᴛʀɪs server</li>
+<li><code>TENTRIS_PASS</code>: optional, string, password to access the
+Tᴇɴᴛʀɪs server</li>
+<li><code>TENTRIS_TLS_KEY</code>: optional, path (inside the container)
+to TLS key, enables TLS</li>
+<li><code>TENTRIS_TLS_CERT</code>: optional, path (inside the container)
+to TLS certificate, enables TLS</li>
+</ul>
+<h4 id="volumes">Volumes</h4>
+<ul>
+<li><code>/data</code>: required, this is where Tᴇɴᴛʀɪs will store its
+database</li>
+</ul>
+<h4 id="ports">Ports</h4>
+<ul>
+<li><code>9080</code>: TCP port the Tᴇɴᴛʀɪs instance will be running
+on</li>
+</ul>
+<h2 id="available-endpoints">Available Endpoints</h2>
+<p>Tᴇɴᴛʀɪs aims to support the <a href="https://www.w3.org/TR/2013/REC-sparql11-protocol-20130321/">SPARQL
+1.1 HTTP Protocol</a>.</p>
+<h3 id="routes">Routes</h3>
+<p>Tᴇɴᴛʀɪs provides several routes that serve different specialized
+purposes.</p>
+<ol type="1">
+<li><code>/sparql</code> this is the default route to submit read
+queries like <code>SELECT</code>, <code>ASK</code>,
+<code>CONSTRUCT</code> or <code>DESCRIBE</code> (<a href="https://www.w3.org/TR/sparql11-query/">SPARQL 1.1 Query
+Language</a>).</li>
+<li><code>/stream</code> accepts the same queries as
+<code>/sparql</code> but streams the response back to the requester.
+This route is optimized for large responses, uses less RAM, and its
+response size is not limited. <strong>However</strong>, due to a
+fundamental limitation in HTTP streaming, it <strong>cannot</strong>
+report errors that may occur after streaming has started. This is
+relevant for timeouts and queries using the <code>SERVICE</code> clause.
+More specifically, the connection will be closed in case of a timeout or
+an error during the execution of the federated queries
+(<code>SERVICE</code> clauses).</li>
+<li><code>/update</code> this is the default route to submit update
+queries, such as
+<code>INSERT</code>/<code>DELETE WHERE</code>/<code>LOAD</code>, etc.
+(<a href="https://www.w3.org/TR/2013/REC-sparql11-update-20130321/">SPARQL
+1.1 Update</a>)</li>
+<li><code>/graph-store</code> implements <a href="https://www.w3.org/TR/sparql11-http-rdf-update">SPARQL 1.1 Graph
+Store HTTP Protocol</a></li>
+<li><code>/ui</code> is a <a href="https://github.com/TriplyDB/Yasgui">Yasgui</a> UI frontend for
+Tᴇɴᴛʀɪs.</li>
+</ol>
+<p><strong>Note: updates are only available if
+<code>allow_updates</code> is set to <code>true</code> in the config
+file. How to configure this is explained in the <a href="#configuration-example-running-the-server-with-updates-enabled">example
+below</a></strong>.</p>
+<h3 id="supported-sparql-result-content-types">Supported SPARQL result
+content types</h3>
+<p>Currently, we support the following SPARQL result content types:</p>
+<ul>
+<li><code>SELECT</code>
+<ul>
+<li>SPARQL JSON (Content-Type:
+<code>application/sparql-results+json</code>)</li>
+<li>SPARQL XML (Content-Type:
+<code>application/sparql-results+xml</code>)</li>
+<li>SPARQL CSV (Content-Type: <code>text/csv</code>)</li>
+<li>SPARQL TSV (Content-Type:
+<code>text/tab-separated-values</code>)</li>
+</ul></li>
+<li><code>ASK</code>
+<ul>
+<li>SPARQL JSON (Content-Type:
+<code>application/sparql-results+json</code>)</li>
+<li>SPARQL XML (Content-Type:
+<code>application/sparql-results+xml</code>)</li>
+</ul></li>
+<li><code>CONSTRUCT</code> and <code>DESCRIBE</code>
+<ul>
+<li>N-Triples (Content-Type: <code>application/n-triples</code>)</li>
+<li>Turtle (Content-Type: <code>text/turtle</code>)</li>
+</ul></li>
+</ul>
+<h3 id="configuration">Configuration</h3>
+<p>The behaviour of the Tᴇɴᴛʀɪs server can be configured with a config
+file. An example configuration with comments and explanations for the
+various options is provided as
+<code>systemd-tentris-server-config.toml</code>. This file also happens
+to be the one that will be used for the <a href="#installation-as-a-systemd-service-linux">systemd service</a> by
+default.</p>
+<p>By default, i.e. when no config file is explicitly specified, Tᴇɴᴛʀɪs
+scans for config files in the following places and uses the first one it
+finds:</p>
+<ol type="1">
+<li><code>./tentris-server-config.toml</code> (current working
+directory)</li>
+<li><code>~/.config/tentris-server-config.toml</code> (user config
+directory)</li>
+<li><code>/etc/tentris-server-config.toml</code> (system config
+directory)</li>
+</ol>
+<p>To instruct Tᴇɴᴛʀɪs to use a specific configuration file instead, use
+the <code>--config</code> commandline option.
+(e.g. <code>./tentris --config path/to/some/config.toml serve</code>).</p>
+<h4 id="configuration-example-running-the-server-with-updates-enabled">Configuration
+Example: Running the server with updates enabled</h4>
+<p>For Tᴇɴᴛʀɪs instances that you plan to run updates on you need to
+explicitly allow updates in the config file.</p>
+<ol type="1">
+<li><p>Create a Tᴇɴᴛʀɪs database with your desired dataset</p>
+<pre class="shell"><code>./tentris load &lt; /home/user/dataset.nt</code></pre></li>
+<li><p>Run the server with updates enabled</p>
+<blockquote>
+<p><code>enabled-updates.toml</code></p>
+<pre><code>[serve]
+allow-updates = true</code></pre>
+</blockquote>
+<pre class="shell"><code>./tentris --config enabled-updates.toml serve</code></pre></li>
+<li><p>The update routes are now disabled, you can only query the
+server.</p></li>
+</ol>
+<h4 id="configuration-example-authentication">Configuration Example:
+Authentication</h4>
+<p>By default, querying Tᴇɴᴛʀɪs does not require authentication. If you
+want queries to require authentication, the following will walk through
+the setup process.</p>
+<p><strong>Note</strong>: users cannot be created while the server is
+running.</p>
+<ol type="1">
+<li><p>Create a Tᴇɴᴛʀɪs database</p>
+<pre class="shell"><code>./tentris init</code></pre></li>
+<li><p>Create users. In this example we will create an admin user with
+both query and update privileges and a user for an employee with just
+query privileges.</p>
+<pre class="shell"><code>./tentris user add -G query,update admin
+./tentris user add -G query employee</code></pre></li>
+<li><p>Run the server with authentication enabled</p>
+<blockquote>
+<p><code>auth.toml</code></p>
+<pre><code>[serve.auth]</code></pre>
+</blockquote>
+<pre class="shell"><code>./tentris --config auth.toml serve</code></pre></li>
+<li><p>All routes are now subject to authentication. The
+<code>/sparql</code>, <code>/stream</code>, <code>/graph-store</code>
+(via <code>HEAD</code> or <code>GET</code>) require login as either
+<code>employee</code> or <code>admin</code> user, whereas
+<code>/update</code> and <code>/graph-store</code> (via
+<code>POST</code>, <code>DELETE</code>, or <code>PUT</code>) require
+login as <code>admin</code>.</p></li>
+<li><p>Open the web UI. You will be redirected to the login
+page.</p></li>
+</ol>
+<h5 id="login-with-curl-instead-of-the-ui">Login with curl (instead of
+the UI)</h5>
+<pre class="shell"><code>curl -c /tmp/cookie http://localhost:9080/login --data &quot;username=admin&amp;password=test&quot;       # login and store the cookie at /tmp/cookie
+curl -b /tmp/cookie http://localhost:9080/sparql --data-urlencode &quot;query=ASK { ?s ?p ?o }&quot;  # make a request with the cookie at /tmp/cookie</code></pre>
+<h5 id="guest-authentication">Guest authentication</h5>
+<p>For public endpoints it might be desirable to allow anyone to execute
+read queries on the triplestore, but only allow admins to perform
+updates. To enable this behaviour run Tᴇɴᴛʀɪs with the
+<code>allow_guests = true</code> config option.</p>
+<blockquote>
+<p><code>auth.toml</code></p>
+<pre><code>[serve.auth]
+allow-guests = true</code></pre>
+</blockquote>
+<pre class="shell"><code>./tentris --config auth.toml serve</code></pre>
+<p>When <code>allow_guests=true</code> is specified
+<code>/sparql</code>, <code>/stream</code>, <code>/ui</code> and
+<code>/graph-store</code> (via <code>GET</code> and <code>HEAD</code>)
+can be accessed by anyone without logging in, but <code>/update</code>
+and <code>/graph-store</code> (via <code>POST</code>,
+<code>DELETE</code> and <code>PUT</code>) are still only accessible by
+users with the <code>update</code> permission.</p>
+<h2 id="logging">Logging</h2>
+<p>By default, Tᴇɴᴛʀɪs’ log verbosity is set to <code>info</code>. To
+change the default value, you can use the <code>--log-level</code>
+command line argument.<br />
+For example, to set the log verbosity of Tᴇɴᴛʀɪs to <code>trace</code>
+(the most verbose log-level) use the following:</p>
+<pre class="shell"><code>./tentris serve --log-level trace</code></pre>
+<p>This is probably the most common configuration for running Tᴇɴᴛʀɪs as
+a service, as it logs information about incoming queries and other
+requests.</p>
+<p>In case you find a bug and you want to provide us logs, please run
+the server as follows:</p>
+<pre class="shell"><code>TENTRIS_LOG=trace ./tentris serve</code></pre>
+<h2 id="managing-databases">Managing Databases</h2>
+<p>The following commands use the default database location.</p>
+<h3 id="creating-a-database-dump">Creating a database dump</h3>
+<p>To create a database dump (as N-Quads) run:</p>
+<pre class="shell"><code>./tentris dump &gt; database-contents.nq</code></pre>
+<h3 id="backups">Backups</h3>
+<p>Creates a copy of an existing database that you can store somewhere
+or transfer to a different server.</p>
+<p>Example: Loading a dataset on server_1 and transferring it to
+server_2.</p>
+<pre class="shell"><code># On server_1
+./tentris load &lt; /home/user/swdf.nt  # Loading some dataset
+./tentris backup &gt; backup.tar.zstd
+
+# Copy file over to server_2 at /home/user/backup.tar.zstd
+
+# On server_2
+cd /home/user
+./tentris restore &lt; backup.tar.zstd
+./tentris serve</code></pre>
+<h3 id="snapshots">Snapshots</h3>
+<p>A snapshot stores the current state of the database and allows you to
+restore it later. At the moment, user snapshots can only be taken when
+Tᴇɴᴛʀɪs is not serving. However, Tᴇɴᴛʀɪs creates snapshots automatically
+while running. More specifically, a snapshot is created after a certain
+number of insert and delete queries have been issued.</p>
+<pre class="shell"><code># Load swdf
+./tentris load &lt; /home/user/swdf.nt  # Insert actual path here
+
+# Explicitly create snapshot
+./tentris snapshot create swdf_loaded
+
+# Rollback to previously created snapshot
+./tentris rollback swdf_loaded</code></pre>
+<h4 id="limiting-automatic-snapshotting">Limiting automatic
+snapshotting</h4>
+<p>On filesystems without reflink support (see <a href="#recommended-system-configuration">recommended filesystems</a>),
+snapshots add up quickly in size.</p>
+<p>For limiting the amount of snapshots that are kept while the server
+is running, use:</p>
+<blockquote>
+<p><code>limit-snapshots.toml</code></p>
+<pre><code>[serve]
+limit-snapshots = 3</code></pre>
+</blockquote>
+<pre class="shell"><code>./tentris --config limit-snapshots.toml serve</code></pre>
+<p>To inhibit the snapshot creation after a <code>load</code> command,
+use:</p>
+<pre class="shell"><code>./tentris load --force-no-snapshot --help</code></pre>
+<h2 id="database-concurrency-and-guarantees">Database Concurrency and
+Guarantees</h2>
+<p>Tᴇɴᴛʀɪs implements multi version concurrency control with full
+serializability. Tᴇɴᴛʀɪs gives ACID guarantees.</p>
+<h2 id="recommended-system-configuration">Recommended System
+Configuration</h2>
+<ul>
+<li><p>Tᴇɴᴛʀɪs index files should be stored on a <strong>SSD</strong>.
+It will work on a HDD but will be <strong>slow</strong>.</p></li>
+<li><p>It is strongly advised that you use a <strong>modern filesystem
+with reflink</strong> support, otherwise <a href="#snapshots">snapshots</a>) will bloat your disk. Notable examples
+of filesystems that do support reflinks include:</p>
+<ul>
+<li>btrfs</li>
+<li>zfs</li>
+<li>xfs</li>
+<li><strong>BUT NOT</strong> ext4</li>
+</ul>
+<p>To find out which filesystem you have, run</p>
+<pre class="shell"><code>stat --file-system --format=%T .</code></pre>
+<p>Tᴇɴᴛʀɪs will warn on startup if it detects that the filesystem does
+not have this capability.</p></li>
+<li><p>Tᴇɴᴛʀɪs reaches the optimal loading performance with about
+<strong>1GB of RAM per 10M</strong> triples. With less RAM loading might
+slow towards the end. This is subject to future optimizations.</p></li>
+<li><p>For larger datasets, relaxing virtual memory settings increases
+the write performance of Tᴇɴᴛʀɪs significantly. It is recommended to
+<strong>run the following commands</strong> before running
+<code>tentris load</code> or <code>tentris serve</code>:</p>
+<pre class="shell"><code>sudo sysctl vm.dirty_writeback_centisecs=30000
+sudo sysctl vm.dirty_ration=90
+sudo sysctl vm.dirty_background_ratio=80
+sudo sysctl vm.dirty_expire_centisecs=300000000</code></pre></li>
+</ul>
+<h2 id="operations-on-graphs">Operations on Graphs</h2>
+<h3 id="performance-hints">Performance Hints</h3>
+<p>Tᴇɴᴛʀɪs provides efficient operations on graphs (e.g.,
+<code>LOAD</code>, <code>DROP</code>). Users are advised to use such
+operations, whenever possible, to benefit from their efficiency.</p>
+<p>For example, the <code>DELETE</code> query</p>
+<pre class="sparql"><code>DELETE { GRAPH ?g { ?s ?p ?o } } USING NAMED &lt;g&gt; WHERE { GRAPH ?g { ?s ?p ?o } }</code></pre>
+<p>can be replaced by the following query</p>
+<pre class="sparql"><code>DROP GRAPH &lt;g&gt;</code></pre>
+<p>More information about graph operations can be found <a href="https://www.w3.org/TR/2013/REC-sparql11-update-20130321/#updateLanguage">here</a>.</p>
+<h2 id="query-hints">Query Hints</h2>
+<p>The query engine of Tᴇɴᴛʀɪs supports two strategies for evaluating
+queries. Details about these strategies can be found <a href="https://papers.dice-research.org/2024/ESWC_C2RPQs/public.pdf">here
+(Section 4.3)</a>. Users are able to explicitly define the strategy to
+be used by providing query hints:</p>
+<ul>
+<li><code>Q_HINT_CARD_EST CARD_EST_REDUCTION_FACTOR</code> (used by
+default)</li>
+<li><code>Q_HINT_CARD_EST CARD_EST_MIN_CARDINALITY</code></li>
+</ul>
+<p>These query hints can be used in <code>SELECT</code>,
+<code>CONSTRUCT</code>, and <code>ASK</code> clauses and are to be
+supplied after the prefix declaration and before the respective clauses,
+as shown below.</p>
+<p>Example:</p>
+<pre class="sparql"><code>PREFIX ex: &lt;http://www.example.org/onto&gt;
+Q_HINT_CARD_EST CARD_EST_MIN_CARDINALITY
+SELECT * WHERE {
+    ?s1 ex:p1 ?o1 . 
+    ?o1 ex:p2 ?o2 . 
+    ?s1 ex:p3 ?o3 .
+}</code></pre>
+<p>These hints can also be used in <code>SELECT</code> subqueries.
+Again, they need to be placed before the <code>SELECT</code> keyword, as
+shown below.</p>
+<p>Example:</p>
+<pre class="sparql"><code>PREFIX ex: &lt;http://www.example.org/onto&gt;
+Q_HINT_CARD_EST CARD_EST_REDUCTION_FACTOR
+SELECT * WHERE { 
+    {
+        Q_HINT_CARD_EST CARD_EST_MIN_CARDINALITY 
+        SELECT * WHERE {
+            ?s1 ex:p1 ?o1 . 
+            ?o1 ex:p2 ?o2 .
+            ?s1 ex:p3 ?o3 .
+        }
+    } 
+}</code></pre>
+<p>In case users are dealing with slow queries, they can use the query
+hints to try out a different execution strategy,
+(e.g. <code>Q_HINT_CARD_EST CARD_EST_MIN_CARDINALITY</code>).</p>
+<h2 id="installation-as-a-systemd-service-linux">Installation as a
+systemd service (Linux)</h2>
+<h3 id="basics">Basics</h3>
+<p>To install Tᴇɴᴛʀɪs as a systemd service you may use the included
+<code>install.sh</code> script:</p>
+<pre class="shell"><code>./install.sh  # install tentris as a systemd service</code></pre>
+<p>A default configuration file will be placed at
+<code>/etc/tentris.d/default.toml</code>. Tᴇɴᴛʀɪs services are managed
+via the <code>systemctl</code> and <code>journalctl</code> commands.</p>
+<p>To set up and start the service you may run the following
+commands:</p>
+<pre class="shell"><code># Initialize the datastore (it is located at /var/local/tentris/default).
+# Note that the config file is specified via --config. You always need to specify this file if you want to run
+# commands for this specific service.
+sudo tentris --config /etc/tentris.d/default.toml init
+
+# Start the tentris service.
+# The @default specifies that the service should use the config file at /etc/tentris.d/default.toml.
+# This is the config we also used in the previous step.
+sudo systemctl start tentris@default</code></pre>
+<h3 id="accessing-the-logs">Accessing the logs</h3>
+<p>To access the logs of a Tᴇɴᴛʀɪs service, you may use
+<code>journalctl</code>.</p>
+<pre class="shell"><code># access the service&#39;s logs
+sudo journalctl -u tentris@default</code></pre>
+<h3 id="recovering-from-a-crash">Recovering from a crash</h3>
+<p>If a Tᴇɴᴛʀɪs service crashed you may recover by using the repair
+command as follows. Take care that the configuration file that is also
+used by the service must be provided.</p>
+<p>Example (using the default configuration file):</p>
+<pre class="shell"><code># After the Tᴇɴᴛʀɪs instance crashed the first step
+# is to stop the service, if it is currently in a restart loop.
+sudo systemctl stop tentris@default
+
+# Attempt to repair the instance.
+# Again, you need to provide the configuration file of the service here.
+sudo tentris --config /etc/tentris.d/default.toml repair
+
+# If repair was successful, restart the service
+sudo systemctl start tentris@default</code></pre>
+<h3 id="running-commands-on-a-service-specific-instance">Running
+commands on a service specific instance</h3>
+<p>To run other commands on a Tᴇɴᴛʀɪs instance installed as a service
+you need to take care of two things: 1. Stop the service before running
+another command and make sure to run only one command at a time. 2.
+Always specify the Tᴇɴᴛʀɪs service’s config file.</p>
+<p>Example (adding a user to the default Tᴇɴᴛʀɪs service):</p>
+<pre class="shell"><code># Stop the service before running any commands
+sudo systemctl stop tentris@default
+
+# Run the command you wish to run
+# In this example we are adding a user named john_doe.
+sudo tentris --config /etc/tentris.d/default.toml user add john_doe -G query -P password
+
+# Restart the service after you are done
+sudo systemctl start tentris@default</code></pre>
+<h3 id="multiple-configurations">Multiple Configurations</h3>
+<p>The service can be configured via any toml file in
+<code>/etc/tentris.d</code>. As mentioned above, a default configuration
+will be placed at <code>/etc/tentris.d/default.toml</code>, but you can
+also create custom configurations.</p>
+<p>Example: &gt; <code>/etc/tentris.d/custom.toml</code> &gt;
+<code>&gt; datastore-path = &quot;/home/user/database&quot; &gt;</code></p>
+<pre class="shell"><code>tentris --config /etc/tentris.d/custom.toml init
+sudo systemctl start tentris@custom</code></pre>
+<h3 id="uninstall">Uninstall</h3>
+<p>To uninstall Tᴇɴᴛʀɪs you may use the included
+<code>uninstall.sh</code> script:</p>
+<pre class="shell"><code>./uninstall.sh</code></pre>
+<h2 id="limitations">Limitations</h2>
+<p>Tᴇɴᴛʀɪs is going to have full SPARQL 1.1 and SPARQL Protocol 1.1
+support soon. At the moment, the following features are still missing or
+have the described limitations. We will resolve these limitations before
+the first production-ready release.</p>
+<h3 id="sparql-query-and-update-language">SPARQL Query and Update
+Language</h3>
+<h4 id="general">General</h4>
+<ul>
+<li>RDF collections</li>
+<li>The abbreviated syntax for blank nodes (<a href="https://www.w3.org/TR/sparql11-query/#rTriplesNode">TriplesNode</a>
+and <a href="https://www.w3.org/TR/sparql11-query/#rTriplesNodePath">TriplesNodePath</a>)</li>
+</ul>
+<h4 id="sparql-querying-specific-features">SPARQL Querying Specific
+Features</h4>
+<ul>
+<li><code>VALUES</code> clause next to the outermost
+<code>SELECT</code>/<code>ASK</code>/<code>CONSTRUCT</code>/<code>DESCRIBE</code>
+query
+(<code>Query ::= Prologue ( SelectQuery | ConstructQuery | DescribeQuery | AskQuery ) ValuesClause</code>)</li>
+<li>Not well-designed <code>OPTIONAL</code> patterns
+<ul>
+<li>Well-designed patterns are defined in this <a href="https://dl.acm.org/doi/abs/10.1145/1567274.1567278">paper</a> (see
+Section 4) by Pérez et al.</li>
+</ul></li>
+<li>The aggregate function <code>GROUP_CONCAT</code></li>
+<li>The keyword <code>UNDEF</code> in inline data (<code>VALUES</code>
+clause)</li>
+<li><code>EXISTS</code> expressions are limited to <a href="https://www.w3.org/TR/sparql11-query/#rGroupGraphPatternSub">group
+graph patterns</a></li>
+<li><code>sameTerm</code> has false positives in known datatypes
+(e.g. <code>xsd:integer</code>), because all literals (of known
+datatype) are canonicalized. For example:
+<code>sameTerm(&quot;1&quot;^^xsd:integer, &quot;01&quot;^^xsd:integer)</code> evaluates to
+true in Tᴇɴᴛʀɪs</li>
+</ul>
+<h3 id="sparql-protocol">SPARQL Protocol</h3>
+<ul>
+<li><code>CONSTRUCT</code> and <code>DESCRIBE</code> responses are
+limited to
+<ul>
+<li>N-Triples (Content-Type: <code>application/n-triples</code>)</li>
+<li>Turtle (Content-Type: <code>text/turtle</code>)</li>
+</ul></li>
+</ul>
+</body>
+</html>

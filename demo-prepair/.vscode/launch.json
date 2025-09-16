@@ -1,0 +1,28 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Dump triples (debug)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",                 // dump_triples_from_iris.py
+      "console": "integratedTerminal",      // see stdout/stderr interactively
+      "cwd": "${workspaceFolder}",          // where relative paths resolve
+      "args": [
+        "--endpoint", "http://192.168.11.101:9081/sparql",
+        "--iris", "iris.txt",
+        "--out", "all-triples.nt",
+        "--batch-size", "50",
+        "--sleep", "0.2",
+        "--timeout", "120",
+        "--graph", "http://enexa.eu",
+      ],
+      "justMyCode": true,
+      "env": {
+        // Put any endpoint auth tokens/headers here if you read them in code
+        // "SPARQL_TOKEN": "xxx"
+      },
+      "envFile": "${workspaceFolder}/.env"  // optional: load vars from .env
+    }
+  ]
+}

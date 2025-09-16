@@ -1,0 +1,27 @@
+services:
+  distributed-kg-fixer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    environment:
+      SPARK_PROFILE: ${SPARK_PROFILE:-dev}
+    container_name: distributed-kg-fixer
+    ports:
+      - "7077:7077"
+      - "9870:9870"
+      - "8088:8088"
+      - "4040:4040"
+      - "8080:8080"
+      - "8081:8081"
+      - "8082:8082"
+    volumes:
+      - ./${OUTPUT_FOLDER}:/root/exported-output
+      - ./${OUTPUT_FOLDER}/logs:/tmp/failed-queries
+      - ./${OUTPUT_FOLDER}/gc-logs:/tmp/gc-logs
+      - ./${OUTPUT_FOLDER}/hadoop-logs:/opt/hadoop/logs
+      - ./${OUTPUT_FOLDER}/spark-logs:/opt/spark/work
+      - ${HOST_OLD_HADOOP_OUTPUT_DIR}:/root/exported-output/HadoopOutput_1:rw
+    tty: true
+    hostname: localhost

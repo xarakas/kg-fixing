@@ -1,0 +1,164 @@
+# Path to the tentris datastore to open.
+# The option set on the commandline takes precendence over this value.
+# If it is neither set here nor on the commandline "./tentris-data" is used.
+# datastore-path = "/var/local/tentris/default"
+
+
+[serve]
+# The log level
+# This can be used as an alternative to the TENTRIS_LOG environment variable
+# or the --log-level command line argument.
+# The precendence is as follows:
+#   1. --log-level argument
+#   2. this configuration option
+#   3. the TENTRIS_LOG enviroment variable
+#
+# Options: "trace", "debug", "info", "warn" or "error"
+# log-level = "trace"
+
+
+# The format of the log output
+# Options: "default" or "json"
+# log-output-format = "default"
+
+
+# The address the server should bind to.
+# The option set on the commandline takes precendence over this value.
+# bind-address = "0.0.0.0:9080"
+
+
+# The number of io threads used by the runtime to accept queries/write out results
+# Default: number of CPUs in the executing system
+# io-threads = 8
+
+
+# The number of threads used by the runtime to evaluate queries
+# Default: number of CPUs in the executing system
+# query-eval-threads = 8
+
+
+# The chunk size for serialization on the /stream route
+# query-eval-stream-serialization-chunk-size = 65536
+
+
+# Threshold of estimated garbage that needs to be reached in order for the garbage collector to run
+# garbage-threshold = 1000000
+
+
+# Allow running SPARQL updates on the server
+# (if false, update endpoints are not available)
+allow-updates = true
+
+
+# Attempt to automatically repair the datastore after a crash
+# The option set on the commandline takes precendence over this value
+#
+# This is equivalent to running tentris repair when it is required.
+#
+# auto-repair = true
+
+
+# Set the mode for the default graph.
+# This is related to https://www.w3.org/TR/2013/REC-sparql11-service-description-20130321/#sd-uniondefaultgraph .
+#
+# Accepts "standalone" or "union"
+# When "standalone" is specified, the default graph is its own distinct graph.
+# When "union" is specified, the default graph is the union of all graphs.
+# default-graph-mode = "standalone"
+
+
+# Limit the number of bytes accepted in request bodies on /sparql, /stream and /update
+# Accepts "unlimited" or an integer >= 1.
+# limit-query-and-update-request-body-size = 8290304
+
+
+# Limit the number of bytes accepted in request bodies on /graph-store (via POST and PUT)
+# Accepts "unlimited" or an integer >= 1.
+# limit-graph-store-request-body-size = "unlimited"
+
+
+# Limit the number of bytes the server is allowed to answer on /sparql
+# Accepts "unlimited" or an integer >= 1.
+# limit-sparql-response-body-size = 4294967296
+
+
+# Timeout in seconds for answering (read) queries
+# Accepts "unlimited" or an integer >= 1.
+limit-query-duration-secs = 600
+
+
+# Limit the number of concurrent connection this server will accept (additional requests are rejected if the limit is reached)
+# Accepts "unlimited", "auto" or an integer >= 1.
+# In case "auto" is specified, will use 2x the number of hardware threads.
+# limit-concurrent-requests = "auto"
+
+
+# Limit the number of versions of the triplestore that are allowed to exist in parallel
+#
+# In write heavy workloads a lower limit results in lower RAM and disk space usage
+# whereas a higher limit increases throughput.
+#
+# For further information see: https://en.wikipedia.org/wiki/Multiversion_concurrency_control
+#
+# Accepts "unlimited" or an integer >= 2
+# limit-versions = "unlimited"
+
+
+# Limit the number of snapshots kept during normal operation
+#
+# This is primarily useful on filesystems without reflinks (like ext4) because snapshots are a full copy of
+# the datastore on these filesystems.
+#
+# Note: while performing a snapshot this limit will be briefly exceeded by one before the least-recent snapshot is pruned.
+# Note: a value of zero indicates that no snapshots will ever be taken automatically. You can still take snapshots via CLI manually.
+# Warning: not taking snapshots will render the database unrecoverable in the event of a crash if you have no other snapshots.
+#
+# Accepts "unlimited" or an integer.
+# limit-snapshots = 1
+
+
+# Additional HTML to be placed in the header of the query UI web page
+# ui-header-html = """
+# <h3>serving</h3>
+# <table style="font-weight: bold">
+#     <tr>
+#         <td><a href="http://example.org#g1" style="color: var(--tentris-red)">example graph 1</a></td>
+#         <td>in graph</td>
+#         <td style="color: var(--tentris-light-green)">&lthttp://example.org#g1&gt</td>
+#     </tr>
+#     <tr>
+#         <td><a href="http://example.org#g2" style="color: var(--tentris-red)">example graph 2</a></td>
+#         <td>in graph</td>
+#         <td style="color: var(--tentris-light-green)">&lthttp://example.org#g2&gt</td>
+#     </tr>
+# </table>
+# """
+
+
+# TLS/SSL configuration
+# By default the server will not use TLS/SSL.
+#
+# [serve.tls]  # comment this line in to enable TLS
+#
+# Path to TLS certificate PEM file (PKCS#8)
+# cert-file = "/path/to/certificate/file"
+#
+# Path to TLS key PEM file (PKCS#8)
+# key-file = "/path/to/key/file"
+#
+# List of TLS/SSL protocol versions the server will allow
+# Accepts list of: "tls12", "tls13"
+# acceptable-protocol-versions = ["tls13"]
+
+
+# Auth configuration
+# By default auth will be disabled
+#
+# [serve.auth]  # comment this line in to enable auth
+#
+# Allow unauthorized access to /sparql, /stream and /ui
+# allow-guests = false
+#
+# Session expiration time in seconds
+# A value of 0 indicates that the session should expire when it ends.
+# session-expiration-secs = 864000

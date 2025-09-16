@@ -1,0 +1,16 @@
+/Users/nikolasparaskakis/Downloads/ncsr/kg-fixing/distributed-kg-fixing-hadoop-module/src/main/java/org/nikolasparaskakis/deduplicator/DedupMapper.java
+/Users/nikolasparaskakis/Downloads/ncsr/kg-fixing/distributed-kg-fixing-hadoop-module/src/main/java/org/nikolasparaskakis/deduplicator/DedupReducer.java
+/Users/nikolasparaskakis/Downloads/ncsr/kg-fixing/distributed-kg-fixing-hadoop-module/src/main/java/org/nikolasparaskakis/equalseteliminator/EqualSetMapper.java
+/Users/nikolasparaskakis/Downloads/ncsr/kg-fixing/distributed-kg-fixing-hadoop-module/src/main/java/org/nikolasparaskakis/equalseteliminator/EqualSetReducer.java
+/Users/nikolasparaskakis/Downloads/ncsr/kg-fixing/distributed-kg-fixing-hadoop-module/src/main/java/org/nikolasparaskakis/khopextractor/KHopExtractor.java
+/Users/nikolasparaskakis/Downloads/ncsr/kg-fixing/distributed-kg-fixing-hadoop-module/src/main/java/org/nikolasparaskakis/khopextractor/KHopMapper.java
+/Users/nikolasparaskakis/Downloads/ncsr/kg-fixing/distributed-kg-fixing-hadoop-module/src/main/java/org/nikolasparaskakis/khopextractor/KHopReducer.java
+/Users/nikolasparaskakis/Downloads/ncsr/kg-fixing/distributed-kg-fixing-hadoop-module/src/main/java/org/nikolasparaskakis/onehopextractor/OneHopCombiner.java
+/Users/nikolasparaskakis/Downloads/ncsr/kg-fixing/distributed-kg-fixing-hadoop-module/src/main/java/org/nikolasparaskakis/onehopextractor/OneHopExtractor.java
+/Users/nikolasparaskakis/Downloads/ncsr/kg-fixing/distributed-kg-fixing-hadoop-module/src/main/java/org/nikolasparaskakis/onehopextractor/OneHopMapper.java
+/Users/nikolasparaskakis/Downloads/ncsr/kg-fixing/distributed-kg-fixing-hadoop-module/src/main/java/org/nikolasparaskakis/onehopextractor/OneHopReducer.java
+/Users/nikolasparaskakis/Downloads/ncsr/kg-fixing/distributed-kg-fixing-hadoop-module/src/main/java/org/nikolasparaskakis/onehopextractor/SparqlInputFormat.java
+/Users/nikolasparaskakis/Downloads/ncsr/kg-fixing/distributed-kg-fixing-hadoop-module/src/main/java/org/nikolasparaskakis/pipeline/KHopExtractorArgs.java
+/Users/nikolasparaskakis/Downloads/ncsr/kg-fixing/distributed-kg-fixing-hadoop-module/src/main/java/org/nikolasparaskakis/pipeline/PipelineKHopExtractor.java
+/Users/nikolasparaskakis/Downloads/ncsr/kg-fixing/distributed-kg-fixing-hadoop-module/src/main/java/org/nikolasparaskakis/subseteliminator/SetMapper.java
+/Users/nikolasparaskakis/Downloads/ncsr/kg-fixing/distributed-kg-fixing-hadoop-module/src/main/java/org/nikolasparaskakis/subseteliminator/SetReducer.java

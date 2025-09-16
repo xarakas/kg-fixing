@@ -1,0 +1,14 @@
+services:
+  monolithic-kg-fixer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    container_name: monolithic-kg-fixer
+    volumes:
+      - ./${OUTPUT_FOLDER}:/root/exported-output
+      - ./${OUTPUT_FOLDER}/logs:/tmp/failed-queries
+      - ./${OUTPUT_FOLDER}/gc-logs:/tmp/gc-logs
+    tty: true
+    hostname: localhost

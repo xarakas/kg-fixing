@@ -421,6 +421,73 @@ public class ABoxHandler implements AutoCloseable {
             String object = propAxiom.getObject().asOWLNamedIndividual().getIRI().toString();
             return String.format("DELETE WHERE { GRAPH <%s> { <%s> <%s> <%s> . } }",
                     this.graphDomain, subject, predicate, object);
+        } else if (oldAxiom instanceof OWLSameIndividualAxiom) {
+            OWLSameIndividualAxiom sameAxiom = (OWLSameIndividualAxiom) oldAxiom;
+
+            List<OWLNamedIndividual> inds = sameAxiom.getIndividuals().stream()
+                    .filter(OWLIndividual::isNamed)
+                    .map(OWLIndividual::asOWLNamedIndividual)
+                    .collect(java.util.stream.Collectors.toList());
+
+            if (inds.size() < 2) {
+                throw new IllegalArgumentException("OWLSameIndividualAxiom must contain at least two named individuals.");
+            }
+
+            StringBuilder sb = new StringBuilder();
+            String sameAs = "http://www.w3.org/2002/07/owl#sameAs";
+
+            for (int i = 0; i < inds.size(); i++) {
+                for (int j = i + 1; j < inds.size(); j++) {
+                    String a = inds.get(i).getIRI().toString();
+                    String b = inds.get(j).getIRI().toString();
+
+                    // a sameAs b
+                    sb.append(String.format(
+                            "DELETE WHERE { GRAPH <%s> { <%s> <%s> <%s> . } };\n",
+                            this.graphDomain, a, sameAs, b));
+
+                    // b sameAs a (symmetric)
+                    sb.append(String.format(
+                            "DELETE WHERE { GRAPH <%s> { <%s> <%s> <%s> . } };\n",
+                            this.graphDomain, b, sameAs, a));
+                }
+            }
+
+            return sb.toString().trim();
+
+        } else if (oldAxiom instanceof OWLDifferentIndividualsAxiom) {
+            OWLDifferentIndividualsAxiom diffAxiom = (OWLDifferentIndividualsAxiom) oldAxiom;
+
+            List<OWLNamedIndividual> inds = diffAxiom.getIndividuals().stream()
+                    .filter(OWLIndividual::isNamed)
+                    .map(OWLIndividual::asOWLNamedIndividual)
+                    .collect(java.util.stream.Collectors.toList());
+
+            if (inds.size() < 2) {
+                throw new IllegalArgumentException("OWLDifferentIndividualsAxiom must contain at least two named individuals.");
+            }
+
+            StringBuilder sb = new StringBuilder();
+            String differentFrom = "http://www.w3.org/2002/07/owl#differentFrom";
+
+            for (int i = 0; i < inds.size(); i++) {
+                for (int j = i + 1; j < inds.size(); j++) {
+                    String a = inds.get(i).getIRI().toString();
+                    String b = inds.get(j).getIRI().toString();
+
+                    // a differentFrom b
+                    sb.append(String.format(
+                            "DELETE WHERE { GRAPH <%s> { <%s> <%s> <%s> . } };\n",
+                            this.graphDomain, a, differentFrom, b));
+
+                    // b differentFrom a (symmetric)
+                    sb.append(String.format(
+                            "DELETE WHERE { GRAPH <%s> { <%s> <%s> <%s> . } };\n",
+                            this.graphDomain, b, differentFrom, a));
+                }
+            }
+
+            return sb.toString().trim();
         } else if (oldAxiom instanceof OWLDataPropertyAssertionAxiom) {
             // Handle data property assertion axioms
             OWLDataPropertyAssertionAxiom dataAxiom = (OWLDataPropertyAssertionAxiom) oldAxiom;

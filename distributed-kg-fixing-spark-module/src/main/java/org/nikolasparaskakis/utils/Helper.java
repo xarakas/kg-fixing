@@ -2,6 +2,7 @@ package org.nikolasparaskakis.utils;
 
 
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
@@ -240,28 +241,36 @@ public class Helper {
     public static JavaRDD<String> mergeModuleFixes(JavaRDD<String> lines) {
         AtomicInteger outerRound = new AtomicInteger();
         // FlatMap each line to (firstAxiom, List<Fix>) pairs
-        JavaPairRDD<String, ArrayList<Fix>> axiomToFixes = lines.flatMapToPair(line -> {
+        JavaPairRDD<String, ArrayList<ObjectNode>> axiomToFixes = lines.flatMapToPair(line -> {
             ModuleFixesLog log = ModuleFixesLog.fromJsonString(line);
             outerRound.set(log.getOuterRound());
             Set<ArrayList<Fix>> moduleFixes = log.getFixes();
-            List<Tuple2<String, ArrayList<Fix>>> pairs = new ArrayList<>();
+            List<Tuple2<String, ArrayList<ObjectNode>>> out = new ArrayList<>();
             for (ArrayList<Fix> fixList : moduleFixes) {
                 if (!fixList.isEmpty()) {
                     String firstAxiom = fixList.get(0).getOldAxiom().toString();
-                    pairs.add(new Tuple2<>(firstAxiom, fixList));
+                    ArrayList<ObjectNode> jsonFixes = new ArrayList<>();
+                    for (Fix f : fixList) {
+                        jsonFixes.add(f.toObjectNode());
+                    }
+                    out.add(new Tuple2<>(firstAxiom, jsonFixes));
                 }
             }
-            return pairs.iterator();
+            return out.iterator();
         });
 
         // Group by firstAxiom, collect all lists of fixes
-        JavaPairRDD<String, Iterable<ArrayList<Fix>>> grouped = axiomToFixes.groupByKey();
+        JavaPairRDD<String, Iterable<ArrayList<ObjectNode>>> grouped = axiomToFixes.groupByKey();
 
         // For each group, create a FixesLog and serialize to JSON
         return grouped.map(pair -> {
             Set<ArrayList<Fix>> fixesSet = new HashSet<>();
-            for (ArrayList<Fix> fixList : pair._2) {
-                fixesSet.add(new ArrayList<>(fixList));
+            for (ArrayList<ObjectNode> fixList : pair._2) {
+                ArrayList<Fix> tmp = new ArrayList<>();
+                for (ObjectNode tmp1 : fixList) {
+                    tmp.add(Fix.fromObjectNode(tmp1));
+                }
+                fixesSet.add(tmp);
             }
             // Use outerRound = 0 or any value, as outerRound is not tracked per group here
             FixesLog fixesLog = new FixesLog(outerRound.get(), fixesSet);
@@ -273,28 +282,36 @@ public class Helper {
     public static JavaRDD<String> mergeBinFixes(JavaRDD<String> lines) {
         AtomicInteger outerRound = new AtomicInteger();
         // FlatMap each line to (firstAxiom, List<Fix>) pairs
-        JavaPairRDD<String, ArrayList<Fix>> axiomToFixes = lines.flatMapToPair(line -> {
+        JavaPairRDD<String, ArrayList<ObjectNode>> axiomToFixes = lines.flatMapToPair(line -> {
             BinFixesLog log = BinFixesLog.fromJsonString(line);
             outerRound.set(log.getOuterRound());
             Set<ArrayList<Fix>> moduleFixes = log.getFixes();
-            List<Tuple2<String, ArrayList<Fix>>> pairs = new ArrayList<>();
+            List<Tuple2<String, ArrayList<ObjectNode>>> out = new ArrayList<>();
             for (ArrayList<Fix> fixList : moduleFixes) {
                 if (!fixList.isEmpty()) {
                     String firstAxiom = fixList.get(0).getOldAxiom().toString();
-                    pairs.add(new Tuple2<>(firstAxiom, fixList));
+                    ArrayList<ObjectNode> jsonFixes = new ArrayList<>();
+                    for (Fix f : fixList) {
+                        jsonFixes.add(f.toObjectNode());
+                    }
+                    out.add(new Tuple2<>(firstAxiom, jsonFixes));
                 }
             }
-            return pairs.iterator();
+            return out.iterator();
         });
 
         // Group by firstAxiom, collect all lists of fixes
-        JavaPairRDD<String, Iterable<ArrayList<Fix>>> grouped = axiomToFixes.groupByKey();
+        JavaPairRDD<String, Iterable<ArrayList<ObjectNode>>> grouped = axiomToFixes.groupByKey();
 
         // For each group, create a FixesLog and serialize to JSON
         return grouped.map(pair -> {
             Set<ArrayList<Fix>> fixesSet = new HashSet<>();
-            for (ArrayList<Fix> fixList : pair._2) {
-                fixesSet.add(new ArrayList<>(fixList));
+            for (ArrayList<ObjectNode> fixList : pair._2) {
+                ArrayList<Fix> tmp = new ArrayList<>();
+                for (ObjectNode tmp1 : fixList) {
+                    tmp.add(Fix.fromObjectNode(tmp1));
+                }
+                fixesSet.add(tmp);
             }
             // Use outerRound = 0 or any value, as outerRound is not tracked per group here
             FixesLog fixesLog = new FixesLog(outerRound.get(), fixesSet);

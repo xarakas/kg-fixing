@@ -6,6 +6,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.nikolasparaskakis.utils.OWLFunctionalSyntaxParser;
 import org.semanticweb.owlapi.model.OWLAxiom;
+
+import java.io.Serializable;
 import java.util.Objects;
 
 

@@ -6,6 +6,7 @@ org/nikolasparaskakis/logs/bin/BinReasoningLog.class
 org/nikolasparaskakis/core/Fixer.class
 org/nikolasparaskakis/core/PositionTracker.class
 org/nikolasparaskakis/logs/global/ExplanationLog.class
+org/nikolasparaskakis/utils/FunctionalAxiomRenderer.class
 org/nikolasparaskakis/KGFixerMain.class
 org/nikolasparaskakis/utils/Helper.class
 org/nikolasparaskakis/logs/bin/BinInnerRoundNumLog.class
@@ -25,6 +26,7 @@ org/nikolasparaskakis/analytics/Queries.class
 org/nikolasparaskakis/core/ConsistencyCheckOutcome.class
 org/nikolasparaskakis/core/TBoxHandler.class
 org/nikolasparaskakis/logs/module/ModuleSizeLog.class
+org/nikolasparaskakis/utils/DataAxiomSanitizer$1.class
 org/nikolasparaskakis/core/ModuleData.class
 org/nikolasparaskakis/logs/bin/BinEvent.class
 org/nikolasparaskakis/logs/global/FixesLog.class
@@ -34,6 +36,7 @@ org/nikolasparaskakis/logs/bin/BinEventLog.class
 org/nikolasparaskakis/logs/bin/BinExplanationsLog.class
 org/nikolasparaskakis/core/ABoxHandler.class
 org/nikolasparaskakis/io/HDFSIO.class
+org/nikolasparaskakis/core/ConsistencyCheckOutcome$1.class
 org/nikolasparaskakis/core/AxiomPosition.class
 org/nikolasparaskakis/logs/module/ModuleReasoningLog.class
 org/nikolasparaskakis/logs/module/ModuleFixesLog.class

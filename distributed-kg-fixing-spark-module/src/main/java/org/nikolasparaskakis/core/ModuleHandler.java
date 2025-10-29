@@ -12,7 +12,7 @@ import org.semanticweb.owl.explanation.api.*;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.*;
 import org.semanticweb.owlapi.reasoner.*;
-import uk.ac.manchester.cs.factplusplus.owlapi.FaCTPlusPlusReasonerFactory;
+//import uk.ac.manchester.cs.factplusplus.owlapi.FaCTPlusPlusReasonerFactory;
 import uk.ac.manchester.cs.jfact.JFactFactory;
 import org.semanticweb.owl.explanation.impl.blackbox.checker.InconsistentOntologyExplanationGeneratorFactory;
 import java.time.Duration;
@@ -113,9 +113,9 @@ public class ModuleHandler implements AutoCloseable {
             reasonerFactory = new OpenlletReasonerFactory();
         } else if (this.reasonerSelection == 3) {
             reasonerFactory = new JFactFactory();
+//        } else if (this.reasonerSelection == 4) {
+//            reasonerFactory = new FaCTPlusPlusReasonerFactory();
         } else if (this.reasonerSelection == 4) {
-            reasonerFactory = new FaCTPlusPlusReasonerFactory();
-        } else if (this.reasonerSelection == 5) {
             reasonerFactory = new ElkReasonerFactory();
         } else {
             throw new RuntimeException("Unrecognized reasoner selection: " + this.reasonerSelection);

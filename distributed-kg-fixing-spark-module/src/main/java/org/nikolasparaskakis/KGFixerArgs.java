@@ -129,8 +129,8 @@ public class KGFixerArgs {
                     "\n-1: HermiT" +
                     "\n-2: Pellet" +
                     "\n-3: JFact" +
-                    "\n-4: Fact++" +
-                    "\n-5: ELK",
+//                    "\n-4: Fact++" +
+                    "\n-4: ELK",
             required = true,
             order = 14
     )
@@ -184,21 +184,21 @@ public class KGFixerArgs {
             description = "Timeout for the explanations retrieval task in milliseconds (default: 24hours)",
             order = 19
     )
-    public int perOpTimeoutMillis = 120_000;
+    public int perOpTimeoutMillis = 600_000;
 
     @Parameter(
             names = {"-reasoner-timeout", "--reasoner-timeout-millis"},
             description = "Timeout for the explanations retrieval task in milliseconds (default: 24hours)",
             order = 20
     )
-    public int reasonerTimeoutMillis = 120_000;
+    public int reasonerTimeoutMillis = 600_000;
 
     @Parameter(
             names = {"-fixing-timeout", "--fixing-timeout-millis"},
             description = "Timeout for the fixing task in milliseconds (default: 24hours)",
             order = 21
     )
-    public int fixingTimeoutMillis = 120_000;
+    public int fixingTimeoutMillis = 600_000;
 
     @Parameter(
             names = {"-expLim", "--explanations-limit"},

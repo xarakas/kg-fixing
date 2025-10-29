@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import org.nikolasparaskakis.utils.FunctionalAxiomRenderer;
 import org.nikolasparaskakis.utils.OWLFunctionalSyntaxParser;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import java.util.ArrayList;
@@ -75,7 +76,8 @@ public class ModuleExplanationsLog {
         for (List<OWLAxiom> explanation : this.explanations) {
             ArrayNode explanationArray = mapper.createArrayNode();
             for (OWLAxiom axiom : explanation) {
-                explanationArray.add(axiom.toString());
+//                explanationArray.add(axiom.toString());
+                explanationArray.add(FunctionalAxiomRenderer.render(axiom));
             }
             explanationsArray.add(explanationArray);
         }
@@ -103,6 +105,7 @@ public class ModuleExplanationsLog {
                 List<OWLAxiom> explanation = new ArrayList<>();
                 for (JsonNode axiomNode : explanationArray) {
                     String axiomStr = axiomNode.asText();
+//                    axiomStr = sanitizeFunctionalLiteral(axiomStr);
                     OWLFunctionalSyntaxParser parser = new OWLFunctionalSyntaxParser();
                     OWLAxiom parsedAxiom = parser.parse(axiomStr);
                     explanation.add(parsedAxiom);
@@ -151,6 +154,8 @@ public class ModuleExplanationsLog {
             throw new RuntimeException("Error serializing to JSON", e);
         }
     }
+
+
 
     /**
      * Get the base individual associated with this log entry.

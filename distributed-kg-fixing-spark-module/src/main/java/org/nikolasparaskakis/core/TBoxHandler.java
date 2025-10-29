@@ -138,7 +138,7 @@ public class TBoxHandler {
         ontology.addAll(declarationsTBox);
         ontology.addAll(tBox);
         ontology.addAll(rBox);
-        ontology.addAll(otherTBox);
+//        ontology.addAll(otherTBox);
         ontology.removeIf(ax -> ax.getAxiomType().equals(AxiomType.ANNOTATION_ASSERTION));
         return ontology;
     }

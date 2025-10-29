@@ -53,17 +53,28 @@
       <version>5.0.3</version>
     </dependency>
 
-    <dependency>
-      <groupId>org.skel</groupId>
-      <artifactId>owllink-bin</artifactId>
-      <version>1.0.0</version>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>org.skel</groupId>-->
+<!--      <artifactId>owllink-bin</artifactId>-->
+<!--      <version>1.0.0</version>-->
+<!--    </dependency>-->
 
-    <dependency>
-      <groupId>ontologyutils</groupId>
-      <artifactId>factplusplus</artifactId>
-      <version>1.7.0.3</version>
-    </dependency>
+      <dependency>
+          <groupId>net.sourceforge.owlapi</groupId>
+          <artifactId>owllinkapi</artifactId>
+          <version>2.0.0</version>
+      </dependency>
+      <dependency>
+          <groupId>net.sourceforge.owlapi</groupId>
+          <artifactId>owllinkhttpxml</artifactId>
+          <version>2.0.0</version>
+      </dependency>
+
+<!--    <dependency>-->
+<!--      <groupId>ontologyutils</groupId>-->
+<!--      <artifactId>factplusplus</artifactId>-->
+<!--      <version>1.7.0.3</version>-->
+<!--    </dependency>-->
 
     <dependency>
       <groupId>net.sourceforge.owlapi</groupId>

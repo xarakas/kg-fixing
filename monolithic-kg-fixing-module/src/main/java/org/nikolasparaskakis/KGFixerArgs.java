@@ -107,8 +107,8 @@ public class KGFixerArgs {
                     "\n-1: HermiT" +
                     "\n-2: Pellet" +
                     "\n-3: JFact" +
-                    "\n-4: Fact++" +
-                    "\n-5: ELK",
+//                    "\n-4: Fact++" +
+                    "\n-4: ELK",
             required = true,
             order = 11
     )

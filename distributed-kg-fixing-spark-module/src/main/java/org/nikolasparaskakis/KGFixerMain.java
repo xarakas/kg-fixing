@@ -561,7 +561,7 @@ public class KGFixerMain {
                                 if (extend) {
                                     allIndividuals.addAll(neighborsMap.keySet());
                                 }
-                                System.out.println("Number of individuals: " + allIndividuals.size());
+//                                System.out.println("Number of individuals: " + allIndividuals.size());
 
                                 // Write event log STARTED_FETCHING_TRIPLES_OF_MODULE for the current module
                                 ModuleEventLog startedFetchingTriplesOfModuleEventLog = new ModuleEventLog(baseIndividualStr, ModuleEvent.STARTED_FETCHING_TRIPLES_OF_MODULE, LocalDateTime.now());
@@ -1060,13 +1060,16 @@ public class KGFixerMain {
                     // Define the partition file name
                     String partitionFileName = "partition_" + TaskContext.getPartitionId() + ".ndjson";
 
+                    // Create an HDFSIO object
+                    HDFSIO partitionHdfsIO = new HDFSIO(hdfsLocation);
+
                     // Create a Random object
                     Random random = new Random();
 
                     // Read the global position tracker from hdfs if outerRound > 1 else create a new one
                     PositionTracker globalPositionTracker;
                     if (outerRound > 1) {
-                        globalPositionTracker = PositionTracker.fromJsonString(hdfsIO.readStringFromHDFS(inputPositionTrackerFilePath));
+                        globalPositionTracker = PositionTracker.fromJsonString(partitionHdfsIO.readStringFromHDFS(inputPositionTrackerFilePath));
                     } else {
                         globalPositionTracker = new PositionTracker();
                     }
@@ -1074,9 +1077,6 @@ public class KGFixerMain {
                     // Create TBoxHandler and ABoxHandler objects
                     TBoxHandler tBoxHandler = new TBoxHandler(tBoxFilePath);
                     try (ABoxHandler aBoxHandler = new ABoxHandler(sparqlEndpoint, graphDomain, tBoxHandler, new PositionTracker(globalPositionTracker))) {
-
-                        // Create an HDFSIO object
-                        HDFSIO partitionHdfsIO = new HDFSIO(hdfsLocation);
 
                         try (PartitionLogger logger = new PartitionLogger(
                                 partitionHdfsIO,
@@ -1209,7 +1209,8 @@ public class KGFixerMain {
                                         System.out.println(startedInitialCheckingRepairabilityOfModuleEventLog.toJsonString());
 
                                         long checkRepairabilityStartTimeMillis = System.currentTimeMillis();
-                                        pRepairable = fixer.CheckRepairability().getRepairable();
+                                        if (fixSelection != 4)
+                                            pRepairable = fixer.CheckRepairability().getRepairable();
                                         long checkRepairabilityEndTimeMillis = System.currentTimeMillis();
                                         checkRepairabilityTimeMillis = checkRepairabilityEndTimeMillis - checkRepairabilityStartTimeMillis;
 
@@ -1466,7 +1467,8 @@ public class KGFixerMain {
                     }
                     TBoxHandler tBoxHandler = new TBoxHandler(tBoxFilePath);
                     try (ABoxHandler aBoxHandler = new ABoxHandler(sparqlEndpoint, graphDomain, tBoxHandler, globalPositionTracker)) {
-                        mergedFixesLines.foreach(line -> {
+                        HashSet<String> mergedFixesLinesSet = new HashSet<>(mergedFixesLines.collect());
+                        for (String line : mergedFixesLinesSet) {
                             try {
                                 FixesLog fixesLog = FixesLog.fromJsonString(line);
                                 boolean applied = aBoxHandler.applyFixToTripleStore(fixesLog.getFixes().stream().findFirst().orElseThrow(() -> new Exception("No fixes found in FixesLog!")));
@@ -1476,7 +1478,7 @@ public class KGFixerMain {
                             } catch (Exception e) {
                                 System.err.println("Error processing line: " + e.getMessage());
                             }
-                        });
+                        }
                     }
 
                     hdfsIO.writeStringToHDFS(globalPositionTracker.toJsonString(), outputPositionTrackerFilePath);
@@ -1528,13 +1530,16 @@ public class KGFixerMain {
                     // Define the partition file name
                     String partitionFileName = "partition_" + TaskContext.getPartitionId() + ".ndjson";
 
+                    // Create an HDFSIO object
+                    HDFSIO partitionHdfsIO = new HDFSIO(hdfsLocation);
+
                     // Create a Random object
                     Random random = new Random();
 
                     // Read the global position tracker from hdfs if outerRound > 1 else create a new one
                     PositionTracker globalPositionTracker;
                     if (outerRound > 1) {
-                        globalPositionTracker = PositionTracker.fromJsonString(hdfsIO.readStringFromHDFS(inputPositionTrackerFilePath));
+                        globalPositionTracker = PositionTracker.fromJsonString(partitionHdfsIO.readStringFromHDFS(inputPositionTrackerFilePath));
                     } else {
                         globalPositionTracker = new PositionTracker();
                     }
@@ -1542,9 +1547,6 @@ public class KGFixerMain {
                     // Create TBoxHandler and ABoxHandler objects
                     TBoxHandler tBoxHandler = new TBoxHandler(tBoxFilePath);
                     try (ABoxHandler aBoxHandler = new ABoxHandler(sparqlEndpoint, graphDomain, tBoxHandler, new PositionTracker(globalPositionTracker))) {
-
-                        // Create an HDFSIO object
-                        HDFSIO partitionHdfsIO = new HDFSIO(hdfsLocation);
 
                         // Initialize list of modules structure that will be used in bin-packing algorithm
                         List<ModuleData> modules = new ArrayList<>();
@@ -1718,7 +1720,8 @@ public class KGFixerMain {
                                         System.out.println(startedInitialCheckingRepairabilityOfBinEventLog.toJsonString());
 
                                         long checkRepairabilityStartTimeMillis = System.currentTimeMillis();
-                                        pRepairable = fixer.CheckRepairability().getRepairable();
+                                        if (fixSelection != 4)
+                                            pRepairable = fixer.CheckRepairability().getRepairable();
                                         long checkRepairabilityEndTimeMillis = System.currentTimeMillis();
                                         checkRepairabilityTimeMillis = checkRepairabilityEndTimeMillis - checkRepairabilityStartTimeMillis;
 
@@ -1978,7 +1981,8 @@ public class KGFixerMain {
                     }
                     TBoxHandler tBoxHandler = new TBoxHandler(tBoxFilePath);
                     try (ABoxHandler aBoxHandler = new ABoxHandler(sparqlEndpoint, graphDomain, tBoxHandler, globalPositionTracker)) {
-                        mergedFixesLines.foreach(line -> {
+                        HashSet<String> mergedFixesLinesSet = new HashSet<>(mergedFixesLines.collect());
+                        for (String line : mergedFixesLinesSet) {
                             try {
                                 FixesLog fixesLog = FixesLog.fromJsonString(line);
                                 boolean applied = aBoxHandler.applyFixToTripleStore(fixesLog.getFixes().stream().findFirst().orElseThrow(() -> new Exception("No fixes found in FixesLog!")));
@@ -1988,7 +1992,7 @@ public class KGFixerMain {
                             } catch (Exception e) {
                                 System.err.println("Error processing line: " + e.getMessage());
                             }
-                        });
+                        }
                     }
 
                     hdfsIO.writeStringToHDFS(globalPositionTracker.toJsonString(), outputPositionTrackerFilePath);
@@ -2018,8 +2022,6 @@ public class KGFixerMain {
             } else {
                 throw new RuntimeException("Unimplemented mode.");
             }
-
-//            sc.hadoopConfiguration().set("fs.defaultFS", "hdfs://localhost:9000");
 
             // Create SparkSession from existing JavaSparkContext
             SparkSession spark = SparkSession.builder()
